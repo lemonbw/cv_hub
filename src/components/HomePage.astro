@@ -144,14 +144,7 @@ const personJsonLd = data?.name ? {
           ))}
         </article>
 
-        {/* 2. Avatar */}
-        {avatarUrl && (
-          <article class="card card--avatar">
-            <img class="avatar__img" src={avatarUrl} alt={data?.name ?? t.nameFallback} width="640" height="240" loading="lazy" decoding="async" />
-          </article>
-        )}
-
-        {/* 3. Skills */}
+        {/* 2. Skills */}
         <article class="card card--skills">
           <h2 class="h2">{t.skills}</h2>
           {skillGroups.length > 0 ? (
@@ -205,6 +198,11 @@ const personJsonLd = data?.name ? {
               )}
               {data?.title && <p class="hero__title">{data.title}</p>}
             </div>
+            {avatarUrl && (
+              <div class="hero__avatar">
+                <img class="avatar__img" src={avatarUrl} alt={data?.name ?? t.nameFallback} width="200" height="200" loading="lazy" decoding="async" />
+              </div>
+            )}
           </div>
 
           {/* Location & work preferences */}

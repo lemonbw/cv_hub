@@ -418,12 +418,13 @@ a:hover { text-decoration: underline; }
     display: contents;
   }
 
-  .card--downloads   { order: 1; }
-  .card.hero         { order: 2; }
-  .card--achievements{ order: 3; }
-  .section--experience { order: 4; }
-  .card--avatar      { order: 5; }
-  .card--skills      { order: 6; }
+  .card--downloads   { order: 8; }
+  .card.hero         { order: 1; }
+  .card--skills      { order: 2; }
+  .section--experience { order: 3; }
+  .card--achievements{ order: 4; }
+  .section--education { order: 5; }
+  .card--languages   { order: 6; }
 }
 
 
@@ -455,28 +456,6 @@ a:hover { text-decoration: underline; }
   margin: 10px 0 0;
   color: var(--muted);
   line-height: 1.6;
-}
-
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   AVATAR
-   ───────────────────────────────────────────────────────────────────────────── */
-
-.card--avatar {
-  padding: 12px;
-  display: flex;
-  justify-content: center;
-}
-
-.avatar__img {
-  display: block;
-  width: 100%;
-  max-width: 220px;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid var(--border-2);
-  box-shadow: var(--shadow-soft);
 }
 
 
@@ -531,7 +510,7 @@ a:hover { text-decoration: underline; }
    HERO
    ───────────────────────────────────────────────────────────────────────────── */
 
-.hero { padding: 18px; }
+.hero { padding: 18px; position: relative; }
 
 .hero__top {
   display: flex;
@@ -610,6 +589,49 @@ a:hover { text-decoration: underline; }
   font-size: 20px;
   font-weight: 750;
   color: var(--accent-2);
+}
+
+.hero__avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-2);
+  box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 959px) {
+  .hero__top {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__avatar {
+    order: -1;
+    width: 100%;
+  }
+
+  .hero__avatar .avatar__img {
+    max-width: 180px;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero__avatar {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 160px;
+    height: 160px;
+  }
 }
 
 .hero__about {
@@ -1188,7 +1210,7 @@ a:hover { text-decoration: underline; }
   .footer,
   .bg,
   .card--downloads,
-  .card--avatar,
+  .hero__avatar,
   .share-btn,
   .project-page__nav,
   .lightbox,
