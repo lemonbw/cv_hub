@@ -6,6 +6,24 @@ Versioning: [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.7.0] — 2026-09-01
+
+### Added
+- New CV content schema fields — `salary`, `gender`, `birthdate`, `employment`, `work_format` — with corresponding translation keys (`salary`, `employment`, `work_format`, `education`, `languages`, `about_me`, `location`, `work_permit`) and hh.ru-style layout in `HomePage.astro` (salary block, meta info row, gender/birthdate under name, separate education and languages sections, experience stack tags). Replaces old devops/gamedev profile variants with a single default profile
+- Personal info, salary details, and formatted contact values now exported to PDF and DOCX resumes (via `.github/scripts/generate-resume.js` and `src/scripts/resume-export-pdf.mjs`)
+
+### Changed
+- Replaced `favicon.svg` (hand-coded vector path) and single-frame `favicon.ico` (32×32) with the black version of the project logo, traced from a high-res PNG. `favicon.svg` preserves the dark-mode-aware fill (`#000` on light, `#FFF` on dark); `favicon.ico` is now a proper multi-resolution ICO (16×16, 32×32, 48×48, 64×64)
+- Moved avatar into the hero section and fixed mobile section ordering in `HomePage.astro` (plus `global.css` adjustments)
+- Tightened PDF resume spacing so the resume fits on one A4 page — sidebar width 66→63mm, avatar 36→30mm, name 18→16pt, base font 9.5→9pt, reduced line-height and inter-block margins, tighter typography scale across contact/education/skills/languages
+
+### Fixed
+- Removed duplicate language skills group appearing in the human-readable PDF export
+- `tel:` links in contact entries now validated in the content schema (`linkSchema`) and handled correctly in `HomePage.astro` (no `noopener`/`_blank` for tel: hrefs, same as `mailto:`)
+- Fixed period type handling across resume generation scripts — `undefined` values no longer leak into output as literal "undefined" strings (`.github/scripts/generate-resume.js` and `src/scripts/resume-export-pdf.mjs`)
+
+---
+
 ## [1.6.0] — 2026-08-30
 
 ### Added
