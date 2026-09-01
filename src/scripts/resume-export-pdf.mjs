@@ -69,7 +69,7 @@ function loadYaml(filename) {
 }
 
 function cleanPeriod(period = '') {
-  return period
+  return String(period ?? '')
     .replace(/—\s*undefined/g, '')
     .replace(/—\s*$/,          '')
     .trim();

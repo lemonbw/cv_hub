@@ -46,7 +46,7 @@ function ensureDir(dir) {
 }
 
 function cleanPeriod(period = '') {
-  return (period ?? '')
+  return String(period ?? '')
     .replace(/—\s*undefined/g, '')
     .replace(/—\s*$/, '')
     .trim();

@@ -4,7 +4,7 @@ image: /avatar.jpg
 location: Казахстан, Караганда
 gender: Мужчина
 birthdate: "1997" # год рождения (точная дата неизвестна)
-salary: "90 000 ₽ на руки"
+salary: "40 000 ₽ на руки"
 employment: Полная занятость
 work_format: Удалённо, гибрид
 summary: >
@@ -28,7 +28,7 @@ achievements:
   - Разработал интерактивный сайт-книгу The World We Knew — поиск, сортировка, пагинация, fullscreen-режим, настройки читателя (шрифт, размер текста, выравнивание), адаптивная вёрстка
   - "Подключил Django-backend к проекту: модели глав, CORS/CSRF, fetch-функции на клиенте; в планах — CRUD-интерфейс и текстовый редактор"
   - Реализовал коммерческий проект для компании по продаже строительной опалубки — GSAP-анимации, модальные окна, интеграция Telegram-бота, Markdown → HTML, адаптив
-  - Реализовал преобразование Markdown в HTML в нескольких проектах
+  - Реализовал сайт-визитку для фотографа на чистом JS с интерактивным модальным просмотром и переключением галереи
 
 skills:
   - group: Frontend
@@ -74,10 +74,24 @@ experience:
       - На текущем этапе — проектирование интерфейса в Figma
     stack: [React, Next.js, TypeScript, Figma]
 
+  - company: Сайт-визитка фотографа
+    role: Frontend-разработчик (личный проект)
+    period: "2024"
+    description:
+      - Разработал адаптивный сайт-портфолио для фотографа на нативном стеке (HTML, CSS, JavaScript)
+      - Реализовал модальное окно для полноэкранного просмотра фотографий и логику переключения изображений в галерее на чистом JS
+    stack: [HTML5, CSS3, JavaScript, Git]
+
 education:
-  - institution: Онлайн-курсы и документация
-    degree: Веб-разработка (Frontend, Backend)
+  - institution: Самообразование, онлайн-курсы и документация
+    degree: Frontend & Backend разработка (React, TypeScript, Python, Django, PostgreSQL)
     period: 2019 — настоящее время
+  - institution: Harvard CS50 & Основы Computer Science
+    degree: Введение в компьютерные науки и веб-разработку (базовые концепции, алгоритмы)
+    period: 2021 — 2022
+  - institution: Профильные программы (Богдан Стащук, itProger, Enki)
+    degree: Курсы по JavaScript, React, Python, HTML/CSS
+    period: 2020 — 2024
 
 languages:
   - language: Русский

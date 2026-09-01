@@ -13,7 +13,7 @@ projects:
   archived: false
   links:
     - label: GitHub
-      url: https://github.com/lemonbw
+      url: https://github.com/lemonbw/the-world-we-knew
       type: repo
 
 - slug: formwork-site
@@ -28,3 +28,24 @@ projects:
   theme: emerald
   featured: false
   archived: false
+  links:
+    - label: GitHub
+      url: https://github.com/lemonbw/antey-bel-public
+      type: repo
+
+- slug: photographer-card
+  name: "Photographer Portfolio Website"
+  order: 3
+  role: "Frontend Developer"
+  year: "2024"
+  description: "Responsive portfolio website for a photographer on vanilla stack with modal photo viewer and interactive gallery switcher."
+  platforms: [Web, Mobile]
+  stack: [HTML5, CSS3, JavaScript]
+  tags: [Frontend, Personal]
+  theme: blue
+  featured: false
+  archived: false
+  links:
+    - label: GitHub
+      url: https://github.com/lemonbw/photographer-card
+      type: repo

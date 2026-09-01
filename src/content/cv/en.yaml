@@ -3,7 +3,7 @@ title: Fullstack Developer
 image: /avatar.jpg
 location: Kazakhstan, Karaganda
 gender: Male
-salary: "90 000 ₽ / month (net)"
+salary: "40 000 ₽ / month (net)"
 employment: Full-time
 work_format: Remote, hybrid
 summary: >
@@ -25,7 +25,7 @@ achievements:
   - Built an interactive book-site The World We Knew — search, sorting, pagination, fullscreen mode, reader settings (font, size, alignment), fully responsive
   - Integrated a Django backend — chapter models, CORS/CSRF, client-side fetch functions; CRUD interface and rich text editor planned
   - Delivered a commercial freelance project for a construction formwork company — GSAP animations, modals, Telegram bot integration, Markdown to HTML, responsive
-  - Implemented Markdown to HTML rendering across multiple projects
+  - Developed a photographer portfolio website on vanilla JS with modal gallery view and image switcher
 
 skills:
   - group: Frontend
@@ -71,10 +71,24 @@ experience:
       - Currently at the Figma design stage
     stack: [React, Next.js, TypeScript, Figma]
 
+  - company: Photographer Portfolio
+    role: Frontend Developer (Personal Project)
+    period: "2024"
+    description:
+      - Developed a responsive portfolio website for a photographer using native web technologies (HTML, CSS, JavaScript)
+      - Implemented full-screen modal view for photos and gallery switcher logic in vanilla JavaScript
+    stack: [HTML5, CSS3, JavaScript, Git]
+
 education:
-  - institution: Online Courses and Documentation
-    degree: Web Development (Frontend & Backend)
+  - institution: Self-Education & Documentation
+    degree: Frontend & Backend Development (React, TypeScript, Python, Django, PostgreSQL)
     period: 2019 — Present
+  - institution: Harvard CS50 & Computer Science Foundations
+    degree: Introduction to Computer Science and Web Development
+    period: 2021 — 2022
+  - institution: Online Specializations (Bogdan Stashchuk, itProger, Enki)
+    degree: JavaScript, React, Python, HTML/CSS coursework
+    period: 2020 — 2024
 
 languages:
   - language: Russian
