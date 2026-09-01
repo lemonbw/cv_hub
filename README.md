@@ -1,20 +1,23 @@
-# Сергей Штер — CV & Portfolio (CV Hub)
+# Персональный сайт-резюме и портфолио
 
-> 💡 **О проекте**: Данный репозиторий является персональным сайтом-резюме и портфолио **Сергея Штера** (Fullstack-разработчик, React / Next.js / TypeScript / Python / Django).
-> Репозиторий форкнут и построен на базе открытого шаблона [**CV Hub**](https://github.com/KeeGooRoomiE/cv_hub) от [Alexander Gusarov (@spartan121 / KeeGooRoomiE)](https://github.com/KeeGooRoomiE).
+> 💡 **О репозитории**: Это моё личное резюме и портфолио (**Сергей Штер**). Я взял за основу открытый шаблон [**CV Hub**](https://github.com/KeeGooRoomiE/cv_hub) от [Alexander Gusarov (@spartan121 / KeeGooRoomiE)](https://github.com/KeeGooRoomiE) и настроил его под свои данные, стек и проекты.
 >
-> 🌐 **Live Portfolio:** [lemonbw.github.io/cv_hub](https://lemonbw.github.io/cv_hub/)  
-> 🔗 **Оригинальный проект / шаблон:** [github.com/KeeGooRoomiE/cv_hub](https://github.com/KeeGooRoomiE/cv_hub) | [Live Demo оригинального автора](https://keegooroomie.github.io/cv_hub/)
+> 🌐 **Мой сайт / портфолио:** [lemonbw.github.io/cv_hub](https://lemonbw.github.io/cv_hub/)  
+> 🔗 **Оригинальный шаблон CV Hub:** [github.com/KeeGooRoomiE/cv_hub](https://github.com/KeeGooRoomiE/cv_hub) | [Live Demo автора шаблона](https://keegooroomie.github.io/cv_hub/)
 
 ---
 
-## 👨‍💻 Об авторе форка
+## 👤 Мои данные и проекты
 
 - **Имя**: Сергей Штер
 - **Специализация**: Fullstack-разработчик (React, Next.js, TypeScript, Tailwind CSS, Python, Django, PostgreSQL)
 - **Локация**: Казахстан, Караганда
-- **GitHub**: [@lemonbw](https://github.com/lemonbw)
-- **Основные проекты**:
+- **Контакты**:
+  - Telegram: [@lemonblackwhite](https://t.me/leonblackwhite)
+  - Телефон: [+7 776 721 02 91](tel:+77767210291)
+  - Email: [leonblackwhite@proton.me](mailto:leonblackwhite@proton.me)
+  - GitHub: [@lemonbw](https://github.com/lemonbw)
+- **Ключевые проекты**:
   - [The World We Knew](https://github.com/lemonbw/the-world-we-knew) — интерактивный сайт-книга (React, Next.js, TypeScript, Tailwind CSS, Django, PostgreSQL)
   - [Antey Bel (Сайт опалубки)](https://github.com/lemonbw/antey-bel-public) — коммерческий проект с GSAP-анимациями и интеграцией Telegram-бота
   - [Photographer Card](https://github.com/lemonbw/photographer-card) — адаптивный сайт-визитка фотографа (HTML5, CSS3, JavaScript)

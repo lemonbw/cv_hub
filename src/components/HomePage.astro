@@ -261,8 +261,8 @@ const personJsonLd = data?.name ? {
                   <a
                     class="pill"
                     href={c.url}
-                    target={c.url?.startsWith('mailto:') ? undefined : '_blank'}
-                    rel={c.url?.startsWith('mailto:')    ? undefined : 'noopener'}
+                    target={c.url?.startsWith('mailto:') || c.url?.startsWith('tel:') ? undefined : '_blank'}
+                    rel={c.url?.startsWith('mailto:') || c.url?.startsWith('tel:')    ? undefined : 'noopener'}
                   >
                     {c.label}
                   </a>

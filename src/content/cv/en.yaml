@@ -14,12 +14,16 @@ summary: >
   I take full ownership of tasks and see them through to completion.
 
 contacts:
+  - label: Telegram
+    url: https://t.me/leonblackwhite
+  - label: Phone
+    url: tel:+77767210291
   - label: Email
     url: mailto:leonblackwhite@proton.me
   - label: GitHub
     url: https://github.com/lemonbw
-  - label: Website
-    url: https://johnappleseed.dev
+  - label: Portfolio
+    url: https://lemonbw.github.io/cv_hub/
 
 achievements:
   - Built an interactive book-site The World We Knew — search, sorting, pagination, fullscreen mode, reader settings (font, size, alignment), fully responsive

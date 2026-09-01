@@ -32,8 +32,9 @@ const linkSchema = z.object({
         v === "" ||
         v.startsWith("https://") ||
         v.startsWith("http://") ||
-        v.startsWith("mailto:"),
-      { message: "url must start with https://, http://, or mailto:" },
+        v.startsWith("mailto:") ||
+        v.startsWith("tel:"),
+      { message: "url must start with https://, http://, mailto:, or tel:" },
     ),
 });
 

@@ -15,14 +15,16 @@ summary: >
   Умею брать задачи полного цикла и доводить их до результата.
 
 contacts:
+  - label: Telegram
+    url: https://t.me/leonblackwhite
+  - label: Телефон
+    url: tel:+77767210291
   - label: Email
     url: mailto:leonblackwhite@proton.me
-  - label: Telegram
-    url: https://t.me/placeholder
   - label: GitHub
     url: https://github.com/lemonbw
-  - label: Сайт
-    url: https://johnappleseed.dev
+  - label: Портфолио
+    url: https://lemonbw.github.io/cv_hub/
 
 achievements:
   - Разработал интерактивный сайт-книгу The World We Knew — поиск, сортировка, пагинация, fullscreen-режим, настройки читателя (шрифт, размер текста, выравнивание), адаптивная вёрстка
