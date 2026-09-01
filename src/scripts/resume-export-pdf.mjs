@@ -39,6 +39,10 @@ const T = {
     experience:   'Experience',
     education:    'Education',
     languages:    'Languages',
+    salary:       'Salary',
+    employment:   'Employment',
+    workFormat:   'Work format',
+    location:     'Location',
   },
   ru: {
     about:        'Обо мне',
@@ -47,6 +51,10 @@ const T = {
     experience:   'Опыт',
     education:    'Образование',
     languages:    'Языки',
+    salary:       'Зарплата',
+    employment:   'Занятость',
+    workFormat:   'Формат работы',
+    location:     'Местоположение',
   },
 };
 
@@ -58,6 +66,19 @@ const esc = (v) => String(v ?? '')
   .replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;')
   .replace(/'/g, '&#39;');
+
+function formatContactDisplay(c) {
+  const rawUrl = c.url ?? '';
+  if (/^tel:/i.test(rawUrl)) {
+    return rawUrl.replace(/^tel:/i, '');
+  }
+  if (/^mailto:/i.test(rawUrl)) {
+    return rawUrl.replace(/^mailto:/i, '');
+  }
+  return rawUrl
+    .replace(/^https?:\/\/(www\.)?/, '')
+    .replace(/\/$/, '');
+}
 
 function ensureDir(dir) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
@@ -78,9 +99,31 @@ function cleanPeriod(period = '') {
 function html(cv, lang = 'en') {
   const tr = T[lang] ?? T.en;
 
-  /* ── Contacts: label as clickable link, URL hidden ── */
+  /* ── Personal & Job details (gender, birthdate, location, salary, employment, work format) ── */
+  const personalParts = [cv.gender, cv.birthdate].filter(Boolean);
+  const personalHtml = personalParts.length ? `
+    <div class="meta-personal">${esc(personalParts.join(', '))}</div>
+  ` : '';
+
+  const jobDetails = [
+    cv.location    ? `<div class="detail-row"><span class="detail-label">${esc(tr.location)}:</span> <span class="detail-val">${esc(cv.location)}</span></div>` : '',
+    cv.salary      ? `<div class="detail-row"><span class="detail-label">${esc(tr.salary)}:</span> <span class="detail-val highlight">${esc(cv.salary)}</span></div>` : '',
+    cv.employment  ? `<div class="detail-row"><span class="detail-label">${esc(tr.employment)}:</span> <span class="detail-val">${esc(cv.employment)}</span></div>` : '',
+    cv.work_format ? `<div class="detail-row"><span class="detail-label">${esc(tr.workFormat)}:</span> <span class="detail-val">${esc(cv.work_format)}</span></div>` : '',
+  ].filter(Boolean).join('');
+
+  const detailsHtml = jobDetails ? `
+    <div class="sidebar-details">
+      ${jobDetails}
+    </div>
+  ` : '';
+
+  /* ── Contacts: label + real display text as link ── */
   const contactsHtml = (cv.contacts ?? [])
-    .map(c => `<div class="contact-row"><a href="${esc(c.url)}">${esc(c.label)}</a></div>`)
+    .map(c => {
+      const display = formatContactDisplay(c);
+      return `<div class="contact-row"><a href="${esc(c.url)}"><span class="contact-label">${esc(c.label)}:</span> <span class="contact-value">${esc(display)}</span></a></div>`;
+    })
     .join('');
 
   /* ── Education ── */
@@ -244,17 +287,68 @@ function html(cv, lang = 'en') {
       font-size: 9.5pt;
       font-weight: 400;
       color: var(--text);
-      margin-bottom: 12px;
-      line-height: 1.4;
+      margin-bottom: 6px;
+      line-height: 1.35;
     }
 
-    /* Contacts: label only as link */
+    .meta-personal {
+      font-size: 8pt;
+      color: var(--muted);
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .sidebar-details {
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d0d0;
+    }
+
+    .detail-row {
+      font-size: 8pt;
+      line-height: 1.4;
+      margin-bottom: 2px;
+      color: var(--text);
+    }
+
+    .detail-label {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .detail-val {
+      color: var(--text);
+    }
+
+    .detail-val.highlight {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* Contacts: label and display as link */
     .contact-row {
-      margin-bottom: 3px;
-      font-size: 8.5pt;
+      margin-bottom: 3.5px;
+      font-size: 8pt;
+      line-height: 1.35;
     }
 
     .contact-row a {
+      color: var(--text);
+      text-decoration: none;
+      display: block;
+      word-break: break-all;
+    }
+
+    .contact-row a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-label {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .contact-value {
       color: var(--accent);
       font-weight: 500;
     }
@@ -265,7 +359,7 @@ function html(cv, lang = 'en') {
     .sidebar-divider {
       border: none;
       border-top: 1px solid #d0d0d0;
-      margin: 10px 0 8px;
+      margin: 8px 0 6px;
     }
 
     .sidebar-section h3 {
@@ -274,57 +368,57 @@ function html(cv, lang = 'en') {
       text-transform: uppercase;
       letter-spacing: 0.07em;
       color: var(--text);
-      margin-bottom: 7px;
+      margin-bottom: 5px;
     }
 
     /* Education */
-    .edu-item { margin-bottom: 8px; }
+    .edu-item { margin-bottom: 6px; }
 
     .edu-institution {
       font-weight: 600;
       color: var(--accent);
-      font-size: 8.5pt;
+      font-size: 8pt;
     }
 
     .edu-period {
-      font-size: 8pt;
+      font-size: 7.5pt;
       color: var(--light);
     }
 
     .edu-degree, .edu-field {
-      font-size: 8.5pt;
+      font-size: 8pt;
       color: var(--muted);
     }
 
     /* Skills */
-    .skill-group-block { margin-bottom: 7px; }
+    .skill-group-block { margin-bottom: 5px; }
 
     .skill-group-name {
       font-weight: 600;
       color: var(--accent);
-      font-size: 8.5pt;
+      font-size: 8pt;
       margin-bottom: 1px;
     }
 
     .skill-items {
-      font-size: 8.5pt;
+      font-size: 8pt;
       color: var(--muted);
-      line-height: 1.55;
+      line-height: 1.45;
     }
 
     /* Languages — stacked, not side-by-side */
     .lang-row {
-      margin-bottom: 5px;
+      margin-bottom: 4px;
     }
 
     .lang-name {
       font-weight: 600;
-      font-size: 8.5pt;
+      font-size: 8pt;
       color: var(--text);
     }
 
     .lang-level {
-      font-size: 8pt;
+      font-size: 7.5pt;
       color: var(--muted);
     }
 
@@ -337,27 +431,27 @@ function html(cv, lang = 'en') {
       flex-direction: column;
     }
 
-    .content-section { margin-bottom: 13px; }
+    .content-section { margin-bottom: 11px; }
 
     /* Section titles — bigger, black, thicker divider */
     .content-section h2 {
-      font-size: 13pt;
+      font-size: 12.5pt;
       font-weight: 600;
       color: var(--text);
-      margin-bottom: 6px;
-      padding-bottom: 4px;
+      margin-bottom: 5px;
+      padding-bottom: 3px;
       border-bottom: 2px solid var(--divider);
     }
 
     /* Summary */
     .summary-text {
-      font-size: 9.5pt;
+      font-size: 9pt;
       color: #333;
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     /* Experience */
-    .exp-entry { margin-bottom: 11px; }
+    .exp-entry { margin-bottom: 9px; }
 
     /* Only header stays glued to first bullet on page break */
     .exp-lead { break-inside: avoid; }
@@ -367,11 +461,11 @@ function html(cv, lang = 'en') {
       justify-content: space-between;
       align-items: baseline;
       gap: 8px;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
     .exp-company {
-      font-size: 10pt;
+      font-size: 9.5pt;
       font-weight: 600;
       color: var(--accent);
       flex: 1;
@@ -381,20 +475,20 @@ function html(cv, lang = 'en') {
     .exp-role {
       font-weight: 400;
       color: var(--accent);
-      font-size: 9.5pt;
+      font-size: 9pt;
     }
 
     .exp-period {
-      font-size: 8.5pt;
+      font-size: 8pt;
       color: var(--light);
       white-space: nowrap;
     }
 
     /* Stack — indented to align with bullet text, not bullet marker */
     .exp-stack {
-      font-size: 8pt;
+      font-size: 7.5pt;
       color: var(--light);
-      margin-top: 3px;
+      margin-top: 2px;
       padding-left: 13px;
       font-style: italic;
     }
@@ -402,19 +496,19 @@ function html(cv, lang = 'en') {
     /* Bullets */
     .bullets {
       padding-left: 13px;
-      margin: 3px 0;
+      margin: 2px 0;
     }
 
     .bullets li {
-      font-size: 9pt;
+      font-size: 8.5pt;
       color: #333;
       margin-bottom: 2px;
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     .bullets li::marker {
       color: var(--accent);
-      font-size: 8pt;
+      font-size: 7.5pt;
     }
   </style>
 </head>
@@ -425,6 +519,8 @@ function html(cv, lang = 'en') {
     ${avatarDataUri ? `<img class="cv-avatar" src="${avatarDataUri}" alt="${esc(cv.name)}"/>` : ''}
     <div class="cv-name">${esc(cv.name)}</div>
     <div class="cv-title">${esc(cv.title)}</div>
+    ${personalHtml}
+    ${detailsHtml}
 
     ${contactsHtml}
     ${educationHtml}
@@ -453,8 +549,27 @@ function htmlAts(cv, lang = 'en') {
 
   const contactsHtml = (cv.contacts ?? []).length ? `
     <div class="contacts">
-      ${(cv.contacts ?? []).map(c => `<a href="${esc(c.url)}">${esc(c.label)}</a>`).join('<span class="sep">·</span>')}
+      ${(cv.contacts ?? []).map(c => {
+        const display = formatContactDisplay(c);
+        return `<a href="${esc(c.url)}"><strong>${esc(c.label)}:</strong> ${esc(display)}</a>`;
+      }).join('<span class="sep">·</span>')}
     </div>` : '';
+
+  const personalParts = [cv.gender, cv.birthdate].filter(Boolean);
+  const personalLine = personalParts.length ? `
+    <p class="meta-line">${esc(personalParts.join(', '))}</p>
+  ` : '';
+
+  const detailsList = [
+    cv.location    ? `<strong>${esc(tr.location)}:</strong> ${esc(cv.location)}` : '',
+    cv.salary      ? `<strong>${esc(tr.salary)}:</strong> ${esc(cv.salary)}` : '',
+    cv.employment  ? `<strong>${esc(tr.employment)}:</strong> ${esc(cv.employment)}` : '',
+    cv.work_format ? `<strong>${esc(tr.workFormat)}:</strong> ${esc(cv.work_format)}` : '',
+  ].filter(Boolean);
+
+  const detailsLine = detailsList.length ? `
+    <p class="meta-line">${detailsList.join(' <span class="sep">·</span> ')}</p>
+  ` : '';
 
   const aboutHtml = cv.summary ? `
     <section class="section">
@@ -538,12 +653,18 @@ function htmlAts(cv, lang = 'en') {
       margin-top: 2px;
     }
 
+    .meta-line {
+      font-size: 10pt;
+      color: #444;
+      margin-top: 3px;
+    }
+
     .contacts {
       margin-top: 8px;
       font-size: 10.5pt;
     }
 
-    .contacts .sep { margin: 0 6px; }
+    .contacts .sep, .meta-line .sep { margin: 0 6px; }
 
     .section { margin-top: 16px; }
 
@@ -572,6 +693,8 @@ function htmlAts(cv, lang = 'en') {
 <body>
   <div class="cv-name">${esc(cv.name)}</div>
   <div class="cv-title">${esc(cv.title)}</div>
+  ${personalLine}
+  ${detailsLine}
   ${contactsHtml}
   ${aboutHtml}
   ${skillsHtml}

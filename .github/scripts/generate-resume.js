@@ -52,12 +52,49 @@ function cleanPeriod(period = '') {
     .trim();
 }
 
+function formatContactDisplay(c) {
+  const rawUrl = c.url ?? '';
+  if (/^tel:/i.test(rawUrl)) {
+    return rawUrl.replace(/^tel:/i, '');
+  }
+  if (/^mailto:/i.test(rawUrl)) {
+    return rawUrl.replace(/^mailto:/i, '');
+  }
+  return rawUrl
+    .replace(/^https?:\/\/(www\.)?/, '')
+    .replace(/\/$/, '');
+}
+
 // ── TXT ───────────────────────────────────────────────────────────────────────
 
 function generateTxt(cv, lang = 'en') {
   const T = {
-    en: { achievements: 'KEY ACHIEVEMENTS', skills: 'SKILLS', experience: 'EXPERIENCE', education: 'EDUCATION', languages: 'LANGUAGES', contacts: 'CONTACTS', about: 'ABOUT' },
-    ru: { achievements: 'КЛЮЧЕВЫЕ ДОСТИЖЕНИЯ', skills: 'НАВЫКИ', experience: 'ОПЫТ', education: 'ОБРАЗОВАНИЕ', languages: 'ЯЗЫКИ', contacts: 'КОНТАКТЫ', about: 'О СЕБЕ' },
+    en: {
+      achievements: 'KEY ACHIEVEMENTS',
+      skills:       'SKILLS',
+      experience:   'EXPERIENCE',
+      education:    'EDUCATION',
+      languages:    'LANGUAGES',
+      contacts:     'CONTACTS',
+      about:        'ABOUT',
+      salary:       'SALARY',
+      employment:   'EMPLOYMENT',
+      workFormat:   'WORK FORMAT',
+      location:     'LOCATION',
+    },
+    ru: {
+      achievements: 'КЛЮЧЕВЫЕ ДОСТИЖЕНИЯ',
+      skills:       'НАВЫКИ',
+      experience:   'ОПЫТ',
+      education:    'ОБРАЗОВАНИЕ',
+      languages:    'ЯЗЫКИ',
+      contacts:     'КОНТАКТЫ',
+      about:        'О СЕБЕ',
+      salary:       'ЗАРПЛАТА',
+      employment:   'ЗАНЯТОСТЬ',
+      workFormat:   'ФОРМАТ РАБОТЫ',
+      location:     'МЕСТОПОЛОЖЕНИЕ',
+    },
   };
   const tr = T[lang] ?? T.en;
 
@@ -66,13 +103,32 @@ function generateTxt(cv, lang = 'en') {
 
   lines.push(cv.name ?? '');
   lines.push(cv.title ?? '');
+
+  const personalParts = [cv.gender, cv.birthdate].filter(Boolean);
+  if (personalParts.length) {
+    lines.push(personalParts.join(', '));
+  }
+
+  const details = [
+    cv.location    ? `${tr.location}: ${cv.location}` : '',
+    cv.salary      ? `${tr.salary}: ${cv.salary}` : '',
+    cv.employment  ? `${tr.employment}: ${cv.employment}` : '',
+    cv.work_format ? `${tr.workFormat}: ${cv.work_format}` : '',
+  ].filter(Boolean);
+
+  if (details.length) {
+    lines.push(details.join(' | '));
+  }
   lines.push('');
 
   if (cv.summary) { lines.push(cv.summary.trim()); lines.push(''); }
 
   if (cv.contacts?.length) {
     lines.push(hr); lines.push(tr.contacts); lines.push(hr);
-    for (const c of cv.contacts) lines.push(c.label);
+    for (const c of cv.contacts) {
+      const display = formatContactDisplay(c);
+      lines.push(`${c.label}: ${display}`);
+    }
     lines.push('');
   }
 
@@ -150,16 +206,36 @@ function bullet(text) {
 
 function generateDocx(cv, lang = 'en') {
   const T = {
-    en: { about: 'About', achievements: 'Key Achievements', skills: 'Skills', experience: 'Experience', education: 'Education', languages: 'Languages' },
-    ru: { about: 'О себе', achievements: 'Ключевые достижения', skills: 'Навыки', experience: 'Опыт', education: 'Образование', languages: 'Языки' },
+    en: {
+      about:        'About',
+      achievements: 'Key Achievements',
+      skills:       'Skills',
+      experience:   'Experience',
+      education:    'Education',
+      languages:    'Languages',
+      salary:       'Salary',
+      employment:   'Employment',
+      workFormat:   'Work format',
+      location:     'Location',
+    },
+    ru: {
+      about:        'О себе',
+      achievements: 'Ключевые достижения',
+      skills:       'Навыки',
+      experience:   'Опыт',
+      education:    'Образование',
+      languages:    'Языки',
+      salary:       'Зарплата',
+      employment:   'Занятость',
+      workFormat:   'Формат работы',
+      location:     'Местоположение',
+    },
   };
   const tr = T[lang] ?? T.en;
 
   const children = [];
 
-  // ── Avatar — circular crop via SVG mask isn't supported in docx.js, so the
-  //     image renders as-is. A square 96px image keeps the DOCX compact and
-  //     stays aligned with the document's restrained typography.
+  // ── Avatar ──
   if (cv.image) {
     const imgPath = path.join(ROOT, 'public', cv.image.replace(/^\//, ''));
     if (fs.existsSync(imgPath)) {
@@ -190,29 +266,62 @@ function generateDocx(cv, lang = 'en') {
     }),
   );
 
-  // ── Title — black, normal weight ──
+  // ── Title ──
   if (cv.title) {
     children.push(
       new Paragraph({
         children: [new TextRun({ text: cv.title, size: 24, color: TEXT })],
-        spacing: { after: 160 },
+        spacing: { after: 80 },
       }),
     );
   }
 
-  // ── Contacts — label only ──
+  // ── Personal info (Gender, birthdate) ──
+  const personalParts = [cv.gender, cv.birthdate].filter(Boolean);
+  if (personalParts.length) {
+    children.push(
+      new Paragraph({
+        children: [new TextRun({ text: personalParts.join(', '), size: 20, color: MUTED })],
+        spacing: { after: 60 },
+      }),
+    );
+  }
+
+  // ── Job Preferences & Location (Location, Salary, Employment, Work format) ──
+  const detailsList = [
+    cv.location    ? { label: `${tr.location}: `, val: cv.location, highlight: false } : null,
+    cv.salary      ? { label: `${tr.salary}: `, val: cv.salary, highlight: true } : null,
+    cv.employment  ? { label: `${tr.employment}: `, val: cv.employment, highlight: false } : null,
+    cv.work_format ? { label: `${tr.workFormat}: `, val: cv.work_format, highlight: false } : null,
+  ].filter(Boolean);
+
+  if (detailsList.length) {
+    const runs = [];
+    detailsList.forEach((d, idx) => {
+      if (idx > 0) {
+        runs.push(new TextRun({ text: '  ·  ', size: 19, color: LIGHT }));
+      }
+      runs.push(new TextRun({ text: d.label, bold: true, size: 19, color: TEXT }));
+      runs.push(new TextRun({ text: d.val, bold: d.highlight, size: 19, color: d.highlight ? ACCENT : MUTED }));
+    });
+    children.push(
+      new Paragraph({
+        children: runs,
+        spacing: { after: 120 },
+      }),
+    );
+  }
+
+  // ── Contacts — label & display ──
   if (cv.contacts?.length) {
     for (const c of cv.contacts) {
-      const display = c.url
-        .replace(/^mailto:/, '')
-        .replace(/^https?:\/\/(www\.)?/, '')
-        .replace(/\/$/, '');
+      const display = formatContactDisplay(c);
       children.push(
         new Paragraph({
           children: [
             new TextRun({ text: c.label, bold: true, size: 20, color: TEXT }),
             new TextRun({ text: '  —  ', size: 20, color: LIGHT }),
-            new TextRun({ text: display, size: 20, color: MUTED }),
+            new TextRun({ text: display, size: 20, color: ACCENT }),
           ],
           spacing: { after: 40 },
         }),
