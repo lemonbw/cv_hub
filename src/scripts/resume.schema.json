@@ -1,5 +1,3 @@
-
-
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Minimal JSON Resume Schema",
@@ -11,6 +9,7 @@
       "required": ["name"],
       "properties": {
         "name": { "type": "string" },
+        "image": { "type": "string" },
         "label": { "type": "string" },
         "email": { "type": "string", "format": "email" },
         "summary": { "type": "string" },

@@ -12,8 +12,8 @@
 //  @spartan121
 //
 
-import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
 /**
  * NOTE:
@@ -22,115 +22,138 @@ import { glob } from 'astro/loaders';
  */
 
 const linkSchema = z.object({
-  label: z.string().optional().default(''),
+  label: z.string().optional().default(""),
   url: z
     .string()
     .optional()
-    .default('')
+    .default("")
     .refine(
       (v) =>
-        v === '' || v.startsWith('https://') || v.startsWith('http://') || v.startsWith('mailto:'),
-      { message: 'url must start with https://, http://, or mailto:' }
+        v === "" ||
+        v.startsWith("https://") ||
+        v.startsWith("http://") ||
+        v.startsWith("mailto:"),
+      { message: "url must start with https://, http://, or mailto:" },
     ),
 });
 
 const cvSkillGroupSchema = z.object({
-  group: z.string().optional().default(''),
+  group: z.string().optional().default(""),
   items: z.array(z.string()).optional().default([]),
 });
 
 const cvExperienceSchema = z.object({
-  company: z.string().optional().default(''),
-  role: z.string().optional().default(''),
-  period: z.string().optional().default(''),
+  company: z.string().optional().default(""),
+  role: z.string().optional().default(""),
+  period: z.string().optional().default(""),
   description: z.array(z.string()).optional().default([]),
   stack: z.array(z.string()).optional().default([]),
 });
 
 const cvEducationSchema = z.object({
-  institution: z.string().optional().default(''),
-  degree: z.string().optional().default(''),
-  period: z.string().optional().default(''),
+  institution: z.string().optional().default(""),
+  degree: z.string().optional().default(""),
+  period: z.string().optional().default(""),
 });
 
 const cvLanguageSchema = z.object({
-  language: z.string().optional().default(''),
-  level: z.string().optional().default(''),
+  language: z.string().optional().default(""),
+  level: z.string().optional().default(""),
 });
 
 const cv = defineCollection({
-  loader: glob({ pattern: '*.{yaml,yml}', base: './src/content/cv' }),
+  loader: glob({ pattern: "*.{yaml,yml}", base: "./src/content/cv" }),
   schema: z.object({
-    name: z.string().optional().default(''),
-    title: z.string().optional().default(''),
-    summary: z.string().optional().default(''),
+    name: z.string().optional().default(""),
+    title: z.string().optional().default(""),
+    image: z.string().optional().default(""),
+    summary: z.string().optional().default(""),
     contacts: z.array(linkSchema).optional().default([]),
     achievements: z.array(z.string()).optional().default([]),
     skills: z.array(cvSkillGroupSchema).optional().default([]),
     experience: z.array(cvExperienceSchema).optional().default([]),
     education: z.array(cvEducationSchema).optional().default([]),
     languages: z.array(cvLanguageSchema).optional().default([]),
-    location: z.string().optional().default(''),
-    timezone: z.string().optional().default(''),
-    work_permit: z.string().optional().default(''),
+    location: z.string().optional().default(""),
+    timezone: z.string().optional().default(""),
+    work_permit: z.string().optional().default(""),
+    gender: z.string().optional().default(""),
+    birthdate: z.string().optional().default(""),
+    salary: z.string().optional().default(""),
+    employment: z.string().optional().default(""),
+    work_format: z.string().optional().default(""),
   }),
 });
 
 // Showcase
 const showcaseLinkSchema = z.object({
-  label: z.string().optional().default(''),
-  url: z.string().optional().default(''),
+  label: z.string().optional().default(""),
+  url: z.string().optional().default(""),
   type: z
-    .enum(['repo', 'demo', 'store', 'product', 'video', 'article', 'press', 'other'])
+    .enum([
+      "repo",
+      "demo",
+      "store",
+      "product",
+      "video",
+      "article",
+      "press",
+      "other",
+    ])
     .optional()
-    .default('other'),
+    .default("other"),
 });
 
 const showcaseMetricSchema = z.object({
-  label: z.string().optional().default(''),
-  value: z.string().optional().default(''),
-  source: z.string().optional().default(''),
+  label: z.string().optional().default(""),
+  value: z.string().optional().default(""),
+  source: z.string().optional().default(""),
 });
 
 const showcaseMediaSchema = z.object({
-  type: z.enum(['image', 'gif', 'video']).optional().default('image'),
-  src: z.string().optional().default(''),
-  alt: z.string().optional().default(''),
+  type: z.enum(["image", "gif", "video"]).optional().default("image"),
+  src: z.string().optional().default(""),
+  alt: z.string().optional().default(""),
   featured: z.boolean().optional().default(false),
 });
 
-const showcaseProjectSchema = z.object({
-  slug: z.string().optional().default(''),
-  name: z.string().optional().default(''),
-  order: z.coerce.number().optional(),
-  category: z.string().optional().default(''),
-  role: z.string().optional().default(''),
-  year: z.preprocess(
-    (v) => (v === undefined || v === null ? '' : String(v)),
-    z.string().optional().default('')
-  ),
-  description: z.string().optional().default(''),
-  platforms: z.array(z.string()).optional().default([]),
-  tags: z.array(z.string()).optional().default([]),
-  theme: z
-    .enum(['auto', 'blue', 'cyan', 'emerald', 'magenta'])
-    .optional()
-    .default('auto'),
-  accent: z
-    .string()
-    .regex(/^#([0-9a-fA-F]{3}){1,2}$/, 'accent must be a HEX color like #3b82f6')
-    .optional(),
-  metrics: z.array(showcaseMetricSchema).optional().default([]),
-  stack: z.array(z.string()).optional().default([]),
-  links: z.array(showcaseLinkSchema).optional().default([]),
-  media: z.array(showcaseMediaSchema).optional().default([]),
-  featured: z.boolean().optional().default(false),
-  archived: z.boolean().optional().default(false),
-  archive: z.boolean().optional().default(false),
-}).passthrough();
+const showcaseProjectSchema = z
+  .object({
+    slug: z.string().optional().default(""),
+    name: z.string().optional().default(""),
+    order: z.coerce.number().optional(),
+    category: z.string().optional().default(""),
+    role: z.string().optional().default(""),
+    year: z.preprocess(
+      (v) => (v === undefined || v === null ? "" : String(v)),
+      z.string().optional().default(""),
+    ),
+    description: z.string().optional().default(""),
+    platforms: z.array(z.string()).optional().default([]),
+    tags: z.array(z.string()).optional().default([]),
+    theme: z
+      .enum(["auto", "blue", "cyan", "emerald", "magenta"])
+      .optional()
+      .default("auto"),
+    accent: z
+      .string()
+      .regex(
+        /^#([0-9a-fA-F]{3}){1,2}$/,
+        "accent must be a HEX color like #3b82f6",
+      )
+      .optional(),
+    metrics: z.array(showcaseMetricSchema).optional().default([]),
+    stack: z.array(z.string()).optional().default([]),
+    links: z.array(showcaseLinkSchema).optional().default([]),
+    media: z.array(showcaseMediaSchema).optional().default([]),
+    featured: z.boolean().optional().default(false),
+    archived: z.boolean().optional().default(false),
+    archive: z.boolean().optional().default(false),
+  })
+  .passthrough();
 
 const showcase = defineCollection({
-  loader: glob({ pattern: '*.{yaml,yml}', base: './src/content/showcase' }),
+  loader: glob({ pattern: "*.{yaml,yml}", base: "./src/content/showcase" }),
   schema: z.object({
     projects: z.array(showcaseProjectSchema).optional().default([]),
   }),
@@ -140,14 +163,16 @@ const showcase = defineCollection({
 const changelogEntrySchema = z.object({
   version: z.string(),
   date: z.string(),
-  changes: z.array(z.object({
-    type: z.enum(['added', 'changed', 'fixed', 'removed']),
-    text: z.string(),
-  })),
+  changes: z.array(
+    z.object({
+      type: z.enum(["added", "changed", "fixed", "removed"]),
+      text: z.string(),
+    }),
+  ),
 });
 
 const changelog = defineCollection({
-  loader: glob({ pattern: '*.{yaml,yml}', base: './src/content/changelog' }),
+  loader: glob({ pattern: "*.{yaml,yml}", base: "./src/content/changelog" }),
   schema: z.object({
     changelog: z.array(changelogEntrySchema),
   }),
@@ -155,26 +180,30 @@ const changelog = defineCollection({
 
 // Profiles
 const profiles = defineCollection({
-  loader: glob({ pattern: '*.{yaml,yml}', base: './src/content/profiles' }),
+  loader: glob({ pattern: "*.{yaml,yml}", base: "./src/content/profiles" }),
   schema: z.object({
-    profiles: z.array(z.object({
-      id: z.string(),
-      label: z.string(),
-      slug: z.string(),
-      spec: z.string().nullable().optional().default(null),
-    })),
+    profiles: z.array(
+      z.object({
+        id: z.string(),
+        label: z.string(),
+        slug: z.string(),
+        spec: z.string().nullable().optional().default(null),
+      }),
+    ),
   }),
 });
 
 // Languages
 const languages = defineCollection({
-  loader: glob({ pattern: '*.{yaml,yml}', base: './src/content/languages' }),
+  loader: glob({ pattern: "*.{yaml,yml}", base: "./src/content/languages" }),
   schema: z.object({
     default: z.string(),
-    languages: z.array(z.object({
-      id: z.string(),
-      label: z.string(),
-    })),
+    languages: z.array(
+      z.object({
+        id: z.string(),
+        label: z.string(),
+      }),
+    ),
   }),
 });
 
@@ -182,7 +211,7 @@ const languages = defineCollection({
 const translationValueSchema = z.record(z.string());
 
 const i18n = defineCollection({
-  loader: glob({ pattern: '*.{yaml,yml}', base: './src/content/i18n' }),
+  loader: glob({ pattern: "*.{yaml,yml}", base: "./src/content/i18n" }),
   schema: z.object({
     nav: z.record(translationValueSchema).optional().default({}),
     cv: z.record(translationValueSchema).optional().default({}),
@@ -196,22 +225,27 @@ const i18n = defineCollection({
 // Site — deployment-wide settings, not tied to any profile or language.
 // Grows over time (analytics opt-in, "open to work" status, footer credit
 // toggle, ...); `downloads` is the first field. See docs/INFO.md.
-const downloadFormat = z.enum(['pdf', 'pdfAts', 'docx', 'txt']);
+const downloadFormat = z.enum(["pdf", "pdfAts", "docx", "txt"]);
 
 const site = defineCollection({
-  loader: glob({ pattern: '*.{yaml,yml}', base: './src/content/site' }),
+  loader: glob({ pattern: "*.{yaml,yml}", base: "./src/content/site" }),
   schema: z.object({
     // Flat = one implicit ungrouped bucket: downloads: [pdf, docx].
     // Grouped = a labeled section per audience — required as soon as two
     // entries would render the same button label (e.g. pdf + pdfAts both
     // show "PDF"); see docs/INFO.md §17 for the convention.
-    downloads: z.union([
-      z.array(downloadFormat),
-      z.array(z.object({
-        group: z.string().nullable().optional().default(null),
-        items: z.array(downloadFormat),
-      })),
-    ]).optional().default(['pdf', 'docx']),
+    downloads: z
+      .union([
+        z.array(downloadFormat),
+        z.array(
+          z.object({
+            group: z.string().nullable().optional().default(null),
+            items: z.array(downloadFormat),
+          }),
+        ),
+      ])
+      .optional()
+      .default(["pdf", "docx"]),
     // Opt-out "Made with CV Hub" footer credit, next to the GitHub link —
     // always points at the upstream project (not GITHUB_REPOSITORY, unlike
     // the rest of the footer), so every deployed fork stays a discoverable

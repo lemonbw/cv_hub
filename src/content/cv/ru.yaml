@@ -1,178 +1,86 @@
-name: Александр Гусаров
-title: Software Engineer — DevOps · Fullstack · GameDev
-
+name: Сергей Штер
+title: Fullstack-разработчик
+image: /avatar.jpg
+location: Казахстан, Караганда
+gender: Мужчина
+birthdate: "1997" # год рождения (точная дата неизвестна)
+salary: "90 000 ₽ на руки"
+employment: Полная занятость
+work_format: Удалённо, гибрид
 summary: >
-  Инженер с 14+ годами опыта в DevOps, fullstack и геймдеве.
-  Управлял инфраструктурой из 750+ серверов, участвовал в продуктах с аудиторией 100M+,
-  строил всё — от CI/CD пайплайнов до мультиплеерных бэкендов.
-  Закрываю полный цикл — архитектура, код, деплой — и мне это реально нравится.
+  Fullstack-разработчик с акцентом на React, Next.js и TypeScript.
+  Самостоятельно строю проекты от макета до рабочего приложения —
+  с продуманной вёрсткой и вниманием к пользовательскому опыту.
+  Активно осваиваю backend: работаю с Python и Django, изучаю PostgreSQL.
+  Умею брать задачи полного цикла и доводить их до результата.
 
 contacts:
   - label: Email
-    url: mailto:spartan.dgs.121@icloud.com
-  - label: GitHub
-    url: https://github.com/KeeGooRoomiE
+    url: mailto:leonblackwhite@proton.me
   - label: Telegram
-    url: https://t.me/spartan121
-  - label: Upwork
-    url: https://www.upwork.com/freelancers/~01764e57e0646f2fbf
-  - label: LinkedIn
-    url: https://www.linkedin.com/in/alexander-gusarov-4a08911a2/
-  - label: Habr
-    url: https://career.habr.com/xandergusarov
+    url: https://t.me/placeholder
+  - label: GitHub
+    url: https://github.com/lemonbw
+  - label: Сайт
+    url: https://johnappleseed.dev
 
 achievements:
-  - Обслуживал и автоматизировал инфраструктуру из 750+ Linux-серверов (Selectel VPS и bare metal) с аптаймом 99.9%
-  - Сократил время деплоя с 8 до 2 минут (−75%) и расходы на AWS с $550 до $300/мес
-  - Sand Balls — участвовал в разработке игры с 100M+ скачиваний и топом App Store
-  - Bhop Jump — построил мультиплеерный бэкенд, $160K+ выручки в первом квартале
-  - Lana and Ronen — мобильный тайтл с 1M+ скачиваний
-  - Upwork Top Rated Plus — топ 5% фрилансеров, 20+ успешных проектов
+  - Разработал интерактивный сайт-книгу The World We Knew — поиск, сортировка, пагинация, fullscreen-режим, настройки читателя (шрифт, размер текста, выравнивание), адаптивная вёрстка
+  - "Подключил Django-backend к проекту: модели глав, CORS/CSRF, fetch-функции на клиенте; в планах — CRUD-интерфейс и текстовый редактор"
+  - Реализовал коммерческий проект для компании по продаже строительной опалубки — GSAP-анимации, модальные окна, интеграция Telegram-бота, Markdown → HTML, адаптив
+  - Реализовал преобразование Markdown в HTML в нескольких проектах
 
 skills:
-  - group: Языки программирования
-    items: [Go, C#, JavaScript, TypeScript, Dart, Swift, Java, GML]
-
-  - group: Backend и API
-    items: [Node.js, REST API, WebSockets, микросервисы, EF Core]
-
   - group: Frontend
-    items: [React, Angular, HTML, CSS, Tailwind]
-
-  - group: DevOps и инфраструктура
-    items: [Kubernetes, Helm, Docker, Terraform, Ansible, GitLab CI, GitHub Actions, Jenkins]
-
-  - group: Облака
-    items: [AWS — EC2, S3, RDS, VPC, IAM, ALB, Yandex Cloud, Selectel]
-
-  - group: Observability
-    items: [Prometheus, VictoriaMetrics, Grafana, Loki, Alertmanager, CloudWatch]
-
-  - group: Базы данных
-    items: [PostgreSQL, ClickHouse, MySQL, MongoDB, Redis, RabbitMQ]
-
-  - group: Геймдев
-    items: [Unity, GameMaker, мультиплеер, монетизация, игровой дизайн]
-
-  - group: Платформы
-    items: [Linux, Web, iOS, Android, macOS]
-
+    items: [React, Next.js, TypeScript, JavaScript, Tailwind CSS, HTML, CSS]
+  - group: Backend
+    items: [Python, Django]
+  - group: Данные
+    items: [PostgreSQL]
+  - group: Библиотеки
+    items: [GSAP]
+  - group: Инструменты
+    items: [Git, GitHub, Figma, Vite]
   - group: Языки
-    items: [Русский — родной, Английский — IELTS 7.0 (B2)]
+    items: [Русский, Английский]
 
 experience:
-
-  - company: InfoScale
-    role: DevOps-инженер / Software Engineer
-    period: Дек 2024 — Янв 2026
+  - company: Фриланс
+    role: Frontend-разработчик
+    period: 2024 — настоящее время
     description:
-      - Мониторинг и обслуживание 750+ Linux-серверов (Selectel VPS и bare metal)
-        — сетевые интерфейсы, порты, управление доступами, реагирование на инциденты
-      - Управление Kubernetes-кластерами в Yandex Cloud и self-hosted
-        (GitLab, Matrix, Keycloak, Vault); написание и поддержка Helm-чартов
-      - Построил Terraform-инфраструктуру для ~20 AWS-сервисов ($550 → $300/мес);
-        писал собственные модули, развернул ClickHouse; Ansible для конфигурации инстансов
-      - Оптимизировал CI/CD в нескольких репозиториях (GitHub Actions + GitLab CI);
-        единая структура пайплайнов сократила время деплоя с 8 до 2 минут
-      - Построил observability-стек с нуля — пробы VictoriaMetrics, алертинг Prometheus,
-        кастомные дашборды Grafana; Alertmanager с доставкой в Telegram и Matrix
-      - Спроектировал и разработал SaaS-сервис мониторинга полного цикла (Go + Gin/GORM + React)
-        — проверки ping, домена, SSL с интервалами от 10 сек до 24 часов; задеплоен в кластере Kubernetes
-      - Реагировал на SSH brute-force атаки через KVM live-доступ,
-        блокировку портов, ротацию пользователей и настройку таймаутов
-      - Вырастил команду инфраструктуры с 3 до 6 человек; менторил 3 джуниоров
-    stack: [Kubernetes, Helm, Docker, Terraform, Ansible, AWS, Yandex Cloud, GitLab CI, GitHub Actions, Go, React, PostgreSQL, ClickHouse, VictoriaMetrics, Grafana]
+      - Разработал лендинг для компании по продаже строительной опалубки за 3 недели
+      - Реализовал GSAP-анимации, модальные окна и адаптивную вёрстку страниц под десктоп и мобильные устройства
+      - Настроил интеграцию с Telegram-ботом для обработки входящих заявок с сайта
+      - Реализовал преобразование Markdown в HTML для отображения контента
+    stack: [React, Next.js, TypeScript, Tailwind CSS, GSAP]
 
-  - company: SOFTINTERMOB
-    role: Unity-разработчик
-    period: Ноя 2023 — Июл 2024
+  - company: The World We Knew
+    role: Fullstack-разработчик (личный проект)
+    period: Январь 2026 — настоящее время
     description:
-      - Разработал два мобильных приложения от Figma до релиза в App Store — полный цикл
-      - Интегрировал Firebase и сторонние SDK, решал проблемы совместимости iOS/Android
-      - Рефакторил legacy-кодовую базу, улучшил стабильность и производительность
-    stack: [Unity, C#, Firebase, iOS, Android]
+      - Разрабатываю интерактивный сайт-книгу — основной проект (~5 месяцев активной разработки, 8 с учётом параллельных задач)
+      - Реализовал поиск, сортировку, пагинацию и fullscreen-режим чтения
+      - Добавил настройки читателя — выбор шрифта, размер текста и переключение выравнивания
+      - "Подключил Django-backend: модели глав, CORS/CSRF, fetch-функции на клиенте; планируется CRUD и встроенный текстовый редактор"
+      - Верстка полностью адаптирована под мобильные устройства и десктоп
+    stack: [React, Next.js, TypeScript, Tailwind CSS, Python, Django, PostgreSQL]
 
-  - company: AZNResearch
-    role: Fullstack-разработчик
-    period: Июл 2022 — Окт 2023
+  - company: Промо-сайт для игры
+    role: Frontend-разработчик (командный проект)
+    period: 2026 — настоящее время
     description:
-      - Проектировал фронтенд-архитектуру внутренних продуктов для госсектора и enterprise (Angular + Tailwind)
-      - Разрабатывал бэкенд-микросервисы на .NET Core + EF Core, REST API и LINQ-запросы
-      - Внедрил Git-воркфлоу, код-ревью и CI-пайплайны, повысил продуктивность команды на 25%
-    stack: [Angular, Tailwind, C#, .NET Core, SQL Server, MySQL]
-
-  - company: Neosight
-    role: Гейм-дизайнер
-    period: Ноя 2021 — Фев 2022
-    description:
-      - Написал GDD для 6 мобильных игр — механики, монетизация, прогрессия
-      - Проводил эксперименты по валидации концептов, вырастил установки в 30 раз, CTR с 0.4% до 5%
-      - Балансировал уровни и кривые сложности по метрикам retention и drop-off
-    stack: [Unity, Game Design, Analytics]
-
-  - company: Udemy
-    role: Unity-разработчик
-    period: Мар 2021 — Окт 2021
-    description:
-      - Разработал приложение для изучения немецкого с нуля — 22 категории, ~3000 карточек
-      - Оптимизировал архитектуру и хранение данных, уменьшил размер с ~3GB до 400MB
-    stack: [Unity, C#, JSON, iOS, Android]
-
-  - company: Popside Games
-    role: Левел-дизайнер
-    period: Июл 2020 — Окт 2020
-    description:
-      - Спроектировал и сбалансировал 3000+ уровней для Match-3 и Solitaire в сжатые сроки
-      - Улучшил completion rate уровней на 15% через итеративное тестирование
-    stack: [Game Design, Level Design]
-
-  - company: SayGames
-    role: Гейм-дизайнер
-    period: Фев 2020 — Июн 2020
-    description:
-      - Проектировал механики и уровни для hyper-casual прототипов
-      - Участвовал в разработке Sand Balls (100M+ скачиваний) и FlowerKing
-      - Улучшил D1-retention на 10% через итерации по метрикам
-    stack: [Game Design, Unity]
-
-  - company: Goodline
-    role: Software Engineer
-    period: Ноя 2019 — Янв 2020
-    description:
-      - Разрабатывал и адаптировал внутренние React-интерфейсы для мобильных устройств
-      - Улучшил производительность на 25% через оптимизацию компонентов
-    stack: [React, JavaScript]
-
-  - company: Project Tech
-    role: Software Engineer / Сооснователь
-    period: Фев 2017 — Окт 2019
-    description:
-      - Основал студию разработки — нанимал разработчиков, вёл переговоры с клиентами, заключал контракты
-      - Выступал вторым инженером и техлидом — от архитектурных решений до продакшн-кода
-      - Выпустил 10+ продуктов — игры, мобильные приложения и бизнес-ПО для ресторанов, доставки и VR
-      - Построил мультиплеерный бэкенд для Bhop Jump вдвоём — P2P + выделенные серверы до 16 игроков, $160K выручки в Q1
-      - Питчил паблишинг-сделки инди-разработчикам — ранний опыт в продукте и бизнес-развитии
-    stack: [Unity, C#, React, React Native, Xamarin, Node.js, WebSockets, Docker, VR]
+      - Разрабатываю промо-сайт для игры совместно с напарником
+      - На текущем этапе — проектирование интерфейса в Figma
+    stack: [React, Next.js, TypeScript, Figma]
 
 education:
-  - institution: Udemy
-    degree: Linux Foundation Computer Science
-    period: "2025"
-
-  - institution: Udemy
-    degree: Certified Kubernetes Administrator
-    period: "2025"
-
-  - institution: Wargaming Forge
-    degree: Level Designer & Balancing
-    period: "2020"
-
-  - institution: Siberian Polytechnic University / Сибирский политехнический университет
-    degree: Faculty of Information Technology / Факультет информационных технологий
-    period: 2017–2018
+  - institution: Онлайн-курсы и документация
+    degree: Веб-разработка (Frontend, Backend)
+    period: 2019 — настоящее время
 
 languages:
   - language: Русский
     level: Родной
   - language: Английский
-    level: IELTS 7.0 (B2)
+    level: A2 (Элементарный)

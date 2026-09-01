@@ -163,6 +163,21 @@ function html(cv, lang = 'en') {
       }).join('')}
     </section>` : '';
 
+  /* ── Avatar (top of sidebar) — base64-embedded so the PDF is self-contained
+     and the URL in CV YAML (e.g. /avatar.jpg on GitHub Pages under /cv_hub/)
+     doesn't have to resolve at render time. ── */
+  let avatarDataUri = null;
+  if (cv.image) {
+    const imgPath = path.join(ROOT, 'public', cv.image.replace(/^\//, ''));
+    if (fs.existsSync(imgPath)) {
+      const buf  = fs.readFileSync(imgPath);
+      const mime = imgPath.toLowerCase().endsWith('.png') ? 'image/png'
+                 : imgPath.toLowerCase().endsWith('.jpg') || imgPath.toLowerCase().endsWith('.jpeg') ? 'image/jpeg'
+                 : 'application/octet-stream';
+      avatarDataUri = `data:${mime};base64,${buf.toString('base64')}`;
+    }
+  }
+
   return `<!DOCTYPE html>
 <html lang="${lang}">
 <head>
@@ -205,6 +220,15 @@ function html(cv, lang = 'en') {
       padding: 13mm 7mm 13mm 8mm;
       display: flex;
       flex-direction: column;
+    }
+
+    .cv-avatar {
+      width: 36mm;
+      height: 36mm;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 8px;
+      align-self: flex-start;
     }
 
     .cv-name {
@@ -398,6 +422,7 @@ function html(cv, lang = 'en') {
 
   <!-- SIDEBAR -->
   <div class="sidebar">
+    ${avatarDataUri ? `<img class="cv-avatar" src="${avatarDataUri}" alt="${esc(cv.name)}"/>` : ''}
     <div class="cv-name">${esc(cv.name)}</div>
     <div class="cv-title">${esc(cv.title)}</div>
 

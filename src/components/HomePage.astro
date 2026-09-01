@@ -10,6 +10,13 @@ import Layout from './Layout.astro';
 import { getEntry } from 'astro:content';
 import { makeT } from '../scripts/t';
 
+const base = String(import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+const withBase = (p = '') => {
+  if (!p) return '';
+  if (/^https?:\/\//.test(p) || p.startsWith('data:')) return p;
+  return `${base}${p.startsWith('/') ? p : `/${p}`}`;
+};
+
 const {
   lang = 'en',
   data = {},
@@ -19,34 +26,29 @@ const {
 } = Astro.props;
 
 const t = {
-  nameFallback: tProp.nameFallback ?? 'Unnamed',
-  contacts:     tProp.contacts     ?? 'Contacts',
-  skills:       tProp.skills       ?? 'Skills',
-  experience:   tProp.experience   ?? 'Experience',
-  achievements: tProp.achievements ?? 'Achievements',
-  downloads:    tProp.downloads    ?? 'Download',
-  company:      tProp.company      ?? 'Company',
-  empty_skills:      tProp.empty_skills      ?? 'Add skills to YAML — tags will appear here.',
-  empty_experience:  tProp.empty_experience  ?? 'Add experience to YAML — your timeline will appear here.',
+  nameFallback:     tProp.nameFallback     ?? 'Unnamed',
+  contacts:         tProp.contacts         ?? 'Contacts',
+  skills:           tProp.skills           ?? 'Skills',
+  experience:       tProp.experience       ?? 'Experience',
+  achievements:     tProp.achievements     ?? 'Achievements',
+  downloads:        tProp.downloads        ?? 'Download',
+  company:          tProp.company          ?? 'Company',
+  salary:           tProp.salary           ?? 'Expected salary',
+  employment:       tProp.employment       ?? 'Employment',
+  work_format:      tProp.work_format      ?? 'Work format',
+  location_label:   tProp.location_label   ?? 'Location',
+  work_permit:      tProp.work_permit      ?? 'Work permit',
+  education:        tProp.education        ?? 'Education',
+  languages_known:  tProp.languages_known  ?? 'Languages',
+  about_me:         tProp.about_me         ?? 'About me',
+  empty_skills:     tProp.empty_skills     ?? 'Add skills to YAML — tags will appear here.',
+  empty_experience: tProp.empty_experience ?? 'Add experience to YAML — your timeline will appear here.',
 };
 
-// Download buttons: which formats show, and in what order/grouping —
-// site.yml (defaults to the flat [pdf, docx], the pair a visitor actually
-// recognizes; see src/content/site/site.yml for the full reasoning).
-//
-// Two formats can render the *same* one-word label on purpose (pdf and
-// pdfAts both say "PDF" — the qualifier belongs on the group heading, not
-// the button, see docs/INFO.md §17) — so distinct aria-labels are required
-// wherever that happens, or a screen reader announces two identical items.
 let siteConfig = null;
 try { siteConfig = await getEntry('site', 'site'); } catch {}
 const rawDownloads = siteConfig?.data?.downloads ?? ['pdf', 'docx'];
 
-// Flat array of format keys → one implicit, unlabeled group. Array of
-// {group, items} → each entry is its own labeled section. Not a per-element
-// normalizer (like skills' bare-string-or-group entries) — these are two
-// mutually exclusive shapes for the whole field, since "flat" specifically
-// means "one group, no heading needed".
 const downloadGroups = rawDownloads.length === 0
   ? []
   : typeof rawDownloads[0] === 'string'
@@ -60,7 +62,7 @@ const groupLabel = (group) => {
   if (!group) return null;
   const key = `cv.downloads_${group}`;
   const resolved = t2(key);
-  return resolved === key ? group : resolved; // no translation → literal key, not the dotted path
+  return resolved === key ? group : resolved;
 };
 
 const downloadMeta = {
@@ -85,6 +87,10 @@ const contacts     = Array.isArray(data?.contacts)    ? data.contacts    : [];
 const rawSkills    = Array.isArray(data?.skills)      ? data.skills      : [];
 const experience   = Array.isArray(data?.experience)  ? data.experience  : [];
 const achievements = Array.isArray(data?.achievements)? data.achievements: [];
+const education    = Array.isArray(data?.education)   ? data.education   : [];
+const languages    = Array.isArray(data?.languages)   ? data.languages   : [];
+
+const avatarUrl = data?.image ? withBase(data.image) : null;
 
 const normalizeBullet = (v) => {
   if (typeof v === 'string') return v;
@@ -104,9 +110,6 @@ const skillGroups = rawSkills
   )
   .filter((g) => g.items.length > 0);
 
-// schema.org/Person — url/image get filled in by Layout itself; this only
-// supplies the person-specific fields. sameAs wants profile URLs (GitHub,
-// LinkedIn, ...), not a mailto: link, so email is split out separately.
 const emailContact = contacts.find((c) => /^mailto:/i.test(c?.url ?? ''));
 const profileContacts = contacts.filter((c) => /^https?:\/\//i.test(c?.url ?? ''));
 const personJsonLd = data?.name ? {
@@ -141,7 +144,14 @@ const personJsonLd = data?.name ? {
           ))}
         </article>
 
-        {/* 2. Skills */}
+        {/* 2. Avatar */}
+        {avatarUrl && (
+          <article class="card card--avatar">
+            <img class="avatar__img" src={avatarUrl} alt={data?.name ?? t.nameFallback} width="640" height="240" loading="lazy" decoding="async" />
+          </article>
+        )}
+
+        {/* 3. Skills */}
         <article class="card card--skills">
           <h2 class="h2">{t.skills}</h2>
           {skillGroups.length > 0 ? (
@@ -162,6 +172,21 @@ const personJsonLd = data?.name ? {
           )}
         </article>
 
+        {/* 4. Languages */}
+        {languages.length > 0 && (
+          <article class="card card--languages">
+            <h2 class="h2">{t.languages_known}</h2>
+            <ul class="lang-list">
+              {languages.map((l) => (
+                <li class="lang-item">
+                  <span class="lang-item__name">{l.language}</span>
+                  {l.level && <span class="muted lang-item__level"> — {l.level}</span>}
+                </li>
+              ))}
+            </ul>
+          </article>
+        )}
+
       </aside>
 
       {/* ── MAIN CONTENT ── */}
@@ -172,10 +197,61 @@ const personJsonLd = data?.name ? {
           <div class="hero__top">
             <div>
               <h1 class="hero__name">{data?.name ?? t.nameFallback}</h1>
-              {data?.title   && <p class="hero__title">{data.title}</p>}
-              {data?.summary && <p class="hero__summary">{data.summary}</p>}
+              {/* Gender / birthdate line — hh.ru style */}
+              {(data?.gender || data?.birthdate) && (
+                <p class="hero__meta-line">
+                  {[data.gender, data.birthdate].filter(Boolean).join(', ')}
+                </p>
+              )}
+              {data?.title && <p class="hero__title">{data.title}</p>}
             </div>
           </div>
+
+          {/* Location & work preferences */}
+          {(data?.location || data?.work_permit || data?.employment || data?.work_format) && (
+            <div class="hero__info">
+              {data?.location && (
+                <div class="hero__info-row">
+                  <span class="hero__info-label">{t.location_label}:</span>
+                  <span>{data.location}</span>
+                </div>
+              )}
+              {data?.work_permit && (
+                <div class="hero__info-row">
+                  <span class="hero__info-label">{t.work_permit}:</span>
+                  <span>{data.work_permit}</span>
+                </div>
+              )}
+              {data?.employment && (
+                <div class="hero__info-row">
+                  <span class="hero__info-label">{t.employment}:</span>
+                  <span>{data.employment}</span>
+                </div>
+              )}
+              {data?.work_format && (
+                <div class="hero__info-row">
+                  <span class="hero__info-label">{t.work_format}:</span>
+                  <span>{data.work_format}</span>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Salary block — hh.ru style highlighted */}
+          {data?.salary && (
+            <div class="hero__salary">
+              <div class="hero__salary-label">{t.salary}</div>
+              <div class="hero__salary-value">{data.salary}</div>
+            </div>
+          )}
+
+          {/* Summary / About me */}
+          {data?.summary && (
+            <div class="hero__about">
+              <div class="section__title">{t.about_me}</div>
+              <p class="hero__summary">{data.summary}</p>
+            </div>
+          )}
 
           {contacts.length > 0 && (
             <div class="hero__contacts">
@@ -218,11 +294,18 @@ const personJsonLd = data?.name ? {
                     <strong>{e.company ?? t.company}</strong>
                     <span class="muted">{e.period ?? ''}</span>
                   </div>
-                  {e.role && <div class="muted">{e.role}</div>}
+                  {e.role && <div class="item__role">{e.role}</div>}
                   {Array.isArray(e.description) && e.description.length > 0 && (
                     <ul class="list">
                       {e.description.map((d) => <li>{normalizeBullet(d)}</li>)}
                     </ul>
+                  )}
+                  {Array.isArray(e.stack) && e.stack.length > 0 && (
+                    <div class="item__stack">
+                      <ul class="tags">
+                        {e.stack.map((s) => <li class="tag">{s}</li>)}
+                      </ul>
+                    </div>
                   )}
                 </article>
               ))}
@@ -235,6 +318,24 @@ const personJsonLd = data?.name ? {
             </article>
           )}
         </section>
+
+        {/* 4. Education */}
+        {education.length > 0 && (
+          <section class="section section--education">
+            <h2 class="h2">{t.education}</h2>
+            <div class="stack">
+              {education.map((e) => (
+                <article class="card item">
+                  <div class="item__top">
+                    <strong>{e.institution}</strong>
+                    <span class="muted">{e.period ?? ''}</span>
+                  </div>
+                  {e.degree && <div class="item__role muted">{e.degree}</div>}
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
 
       </main>
     </div>

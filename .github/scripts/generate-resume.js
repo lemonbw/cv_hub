@@ -16,7 +16,7 @@ import path from 'path';
 import { parse } from 'yaml';
 import {
   Document, Packer, Paragraph, TextRun, BorderStyle,
-  AlignmentType, LevelFormat, 
+  AlignmentType, LevelFormat, ImageRun,
 } from 'docx';
 
 // ── Paths ─────────────────────────────────────────────────────────────────────
@@ -156,6 +156,31 @@ function generateDocx(cv, lang = 'en') {
   const tr = T[lang] ?? T.en;
 
   const children = [];
+
+  // ── Avatar — circular crop via SVG mask isn't supported in docx.js, so the
+  //     image renders as-is. A square 96px image keeps the DOCX compact and
+  //     stays aligned with the document's restrained typography.
+  if (cv.image) {
+    const imgPath = path.join(ROOT, 'public', cv.image.replace(/^\//, ''));
+    if (fs.existsSync(imgPath)) {
+      const ext  = path.extname(imgPath).slice(1).toLowerCase();
+      const data = fs.readFileSync(imgPath);
+      children.push(
+        new Paragraph({
+          alignment: AlignmentType.LEFT,
+          spacing: { after: 160 },
+          children: [
+            new ImageRun({
+              data,
+              transformation: { width: 96, height: 96 },
+              ...(ext === 'png'  ? { type: 'png'  } : {}),
+              ...(ext === 'jpg' || ext === 'jpeg' ? { type: 'jpg' } : {}),
+            }),
+          ],
+        }),
+      );
+    }
+  }
 
   // ── Name ──
   children.push(

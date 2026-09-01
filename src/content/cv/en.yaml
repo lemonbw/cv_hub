@@ -1,178 +1,83 @@
-name: Alexander Gusarov
-title: Software Engineer — DevOps · Fullstack · GameDev
-
+name: Sergey Shter
+title: Fullstack Developer
+image: /avatar.jpg
+location: Kazakhstan, Karaganda
+gender: Male
+salary: "90 000 ₽ / month (net)"
+employment: Full-time
+work_format: Remote, hybrid
 summary: >
-  Software engineer with 14+ years across DevOps, fullstack and game development.
-  Managed infrastructure for 750+ servers, shipped products with 100M+ users,
-  built everything from CI/CD pipelines to multiplayer backends.
-  I close the full cycle — architecture, code, deployment — and I actually enjoy all of it.
+  Fullstack Developer focused on React, Next.js and TypeScript.
+  I build projects end-to-end — from layout to working application,
+  with polished UI and strong attention to user experience.
+  Actively learning backend development with Python and Django, exploring PostgreSQL.
+  I take full ownership of tasks and see them through to completion.
 
 contacts:
   - label: Email
-    url: mailto:spartan.dgs.121@icloud.com
+    url: mailto:leonblackwhite@proton.me
   - label: GitHub
-    url: https://github.com/KeeGooRoomiE
-  - label: Telegram
-    url: https://t.me/spartan121
-  - label: Upwork
-    url: https://www.upwork.com/freelancers/~01764e57e0646f2fbf
-  - label: LinkedIn
-    url: https://www.linkedin.com/in/alexander-gusarov-4a08911a2/
-  - label: Habr
-    url: https://career.habr.com/xandergusarov
+    url: https://github.com/lemonbw
+  - label: Website
+    url: https://johnappleseed.dev
 
 achievements:
-  - Operated and automated infrastructure for 750+ Linux servers (Selectel VPS and bare metal) with 99.9% uptime
-  - Reduced deploy time from 8 to 2 minutes (−75%) and AWS costs from $550 to $300/month
-  - Sand Balls — contributed to a mobile game with 100M+ downloads and top App Store rankings
-  - Bhop Jump — built multiplayer backend generating $160K+ revenue in the first quarter
-  - Lana and Ronen — 1M+ downloads mobile title
-  - Upwork Top Rated Plus — top 5% of freelancers with 20+ successful projects
+  - Built an interactive book-site The World We Knew — search, sorting, pagination, fullscreen mode, reader settings (font, size, alignment), fully responsive
+  - Integrated a Django backend — chapter models, CORS/CSRF, client-side fetch functions; CRUD interface and rich text editor planned
+  - Delivered a commercial freelance project for a construction formwork company — GSAP animations, modals, Telegram bot integration, Markdown to HTML, responsive
+  - Implemented Markdown to HTML rendering across multiple projects
 
 skills:
-  - group: Languages
-    items: [Go, C#, JavaScript, TypeScript, Dart, Swift, Java, GML]
-
-  - group: Backend & APIs
-    items: [Node.js, REST APIs, WebSockets, microservices, EF Core]
-
   - group: Frontend
-    items: [React, Angular, HTML, CSS, Tailwind]
-
-  - group: DevOps & Infrastructure
-    items: [Kubernetes, Helm, Docker, Terraform, Ansible, GitLab CI, GitHub Actions, Jenkins]
-
-  - group: Cloud
-    items: [AWS — EC2, S3, RDS, VPC, IAM, ALB, Yandex Cloud, Selectel]
-
-  - group: Observability
-    items: [Prometheus, VictoriaMetrics, Grafana, Loki, Alertmanager, CloudWatch]
-
-  - group: Databases
-    items: [PostgreSQL, ClickHouse, MySQL, MongoDB, Redis, RabbitMQ]
-
-  - group: Game Development
-    items: [Unity, GameMaker, multiplayer systems, monetization, game design]
-
-  - group: Platforms
-    items: [Linux, Web, iOS, Android, macOS]
-
-  - group: Languages (spoken)
-    items: [Russian — Native, English — IELTS 7.0 (B2)]
+    items: [React, Next.js, TypeScript, JavaScript, Tailwind CSS, HTML, CSS]
+  - group: Backend
+    items: [Python, Django]
+  - group: Data
+    items: [PostgreSQL]
+  - group: Libraries
+    items: [GSAP]
+  - group: Tools
+    items: [Git, GitHub, Figma, Vite]
+  - group: Languages
+    items: [Russian, English]
 
 experience:
-
-  - company: InfoScale
-    role: DevOps Engineer / Software Engineer
-    period: Dec 2024 — Jan 2026
+  - company: Freelance
+    role: Frontend Developer
+    period: 2024 — Present
     description:
-      - Monitored and maintained 750+ Linux servers (Selectel VPS and bare metal)
-        — network interfaces, ports, access management, incident response
-      - Managed Kubernetes clusters on Yandex Cloud and self-hosted
-        (GitLab, Matrix, Keycloak, Vault); wrote and maintained Helm charts
-      - Built Terraform infrastructure for ~20 AWS services ($550 → $300/month);
-        wrote custom modules, provisioned ClickHouse; Ansible for per-instance configuration
-      - Optimized CI/CD across multiple repos (GitHub Actions + GitLab CI);
-        unified pipeline structure reduced deploy time from 8 to 2 minutes
-      - Built observability stack from scratch — VictoriaMetrics probes, Prometheus alerting,
-        custom Grafana dashboards; Alertmanager integrated with Telegram and Matrix
-      - Designed and developed SaaS monitoring service end-to-end (Go + Gin/GORM + React)
-        — ping, domain, SSL checks with configurable intervals (10s–24h); deployed in-cluster on Kubernetes
-      - Responded to SSH brute-force attacks via KVM live access,
-        port blocking, user rotation, and timeout configuration
-      - Grew infrastructure team from 3 to 6 engineers; mentored 3 junior members
-    stack: [Kubernetes, Helm, Docker, Terraform, Ansible, AWS, Yandex Cloud, GitLab CI, GitHub Actions, Go, React, PostgreSQL, ClickHouse, VictoriaMetrics, Grafana]
+      - Developed a landing page for a construction formwork company in 3 weeks
+      - Implemented GSAP animations, modal windows and responsive layouts for desktop and mobile
+      - Integrated a Telegram bot to handle incoming inquiries from the site
+      - Implemented Markdown to HTML conversion for content rendering
+    stack: [React, Next.js, TypeScript, Tailwind CSS, GSAP]
 
-  - company: SOFTINTERMOB
-    role: Unity Developer
-    period: Nov 2023 — Jul 2024
+  - company: The World We Knew
+    role: Fullstack Developer (Personal Project)
+    period: January 2026 — Present
     description:
-      - Built two mobile applications from Figma designs to App Store release — full cycle
-      - Integrated Firebase and third-party SDKs, resolved compatibility issues on iOS/Android
-      - Refactored legacy codebase, improved stability and performance
-    stack: [Unity, C#, Firebase, iOS, Android]
+      - Building an interactive book-site — main project (~5 months of focused development, 8 months total)
+      - Implemented search, sorting, pagination and fullscreen reading mode
+      - Added reader settings — font choice, text size and alignment controls
+      - Integrated Django backend — chapter models, CORS/CSRF, client-side fetch functions; CRUD and text editor planned
+      - Fully responsive layout for mobile and desktop
+    stack: [React, Next.js, TypeScript, Tailwind CSS, Python, Django, PostgreSQL]
 
-  - company: AZNResearch
-    role: Fullstack Developer
-    period: Jul 2022 — Oct 2023
+  - company: Game Promo Website
+    role: Frontend Developer (Collaborative)
+    period: 2026 — Present
     description:
-      - Designed frontend architecture for internal government and enterprise products using Angular + Tailwind
-      - Developed backend microservices with .NET Core + EF Core, REST APIs and LINQ queries
-      - Introduced Git workflow, code reviews and CI pipelines, boosted team productivity by 25%
-    stack: [Angular, Tailwind, C#, .NET Core, SQL Server, MySQL]
-
-  - company: Neosight
-    role: Game Designer
-    period: Nov 2021 — Feb 2022
-    description:
-      - Wrote GDDs for 6 mobile games — core mechanics, monetization, progression systems
-      - Ran concept validation experiments, grew installs 30x, CTR from 0.4% to 5%
-      - Balanced levels and game curves using retention, difficulty and drop-off metrics
-    stack: [Unity, Game Design, Analytics]
-
-  - company: Udemy
-    role: Unity Developer
-    period: Mar 2021 — Oct 2021
-    description:
-      - Built a German language learning app from scratch — 22 categories, ~3000 flashcards
-      - Optimized architecture and data storage, reduced app size from ~3GB to 400MB
-    stack: [Unity, C#, JSON, iOS, Android]
-
-  - company: Popside Games
-    role: Level Designer
-    period: Jul 2020 — Oct 2020
-    description:
-      - Designed and balanced 3000+ levels for Match-3 and Solitaire under tight production schedule
-      - Improved level completion rate by 15% through iterative testing
-    stack: [Game Design, Level Design]
-
-  - company: SayGames
-    role: Game Designer
-    period: Feb 2020 — Jun 2020
-    description:
-      - Designed mechanics and levels for hyper-casual prototypes
-      - Contributed to Sand Balls (100M+ downloads) and FlowerKing
-      - Improved D1-retention by 10% through retention/drop-off metric iterations
-    stack: [Game Design, Unity]
-
-  - company: Goodline
-    role: Software Engineer
-    period: Nov 2019 — Jan 2020
-    description:
-      - Developed and adapted internal React interfaces for mobile devices
-      - Improved performance by 25% through component optimization
-    stack: [React, JavaScript]
-
-  - company: Project Tech
-    role: Software Engineer / Co-Founder
-    period: Feb 2017 — Oct 2019
-    description:
-      - Co-founded a development studio — hired developers, negotiated with clients, signed contracts
-      - Acted as second engineer and tech lead — architecture decisions through to production code
-      - Shipped 10+ products — games, mobile apps and business software for restaurants, delivery services and VR
-      - Built multiplayer backend for Bhop Jump with a team of two — P2P + dedicated servers up to 16 players, $160K revenue in Q1
-      - Pitched publishing deals to indie developers — early experience in product and business development
-    stack: [Unity, C#, React, React Native, Xamarin, Node.js, WebSockets, Docker, VR]
+      - Building a promotional website for a game together with a partner
+      - Currently at the Figma design stage
+    stack: [React, Next.js, TypeScript, Figma]
 
 education:
-  - institution: Udemy
-    degree: Linux Foundation Computer Science
-    period: "2025"
-
-  - institution: Udemy
-    degree: Certified Kubernetes Administrator
-    period: "2025"
-
-  - institution: Wargaming Forge
-    degree: Level Designer & Balancing
-    period: "2020"
-
-  - institution: Siberian Polytechnic University
-    degree: Faculty of Information Technology
-    period: 2017–2018
+  - institution: Online Courses and Documentation
+    degree: Web Development (Frontend & Backend)
+    period: 2019 — Present
 
 languages:
   - language: Russian
     level: Native
   - language: English
-    level: IELTS 7.0 (B2)
+    level: A2 (Elementary)

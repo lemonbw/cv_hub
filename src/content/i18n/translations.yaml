@@ -61,6 +61,30 @@ cv:
     en: "Add experience to YAML — your timeline will appear here."
     ru: "Добавь experience в YAML — тут появится таймлайн опыта."
     zh: "在 YAML 中添加经验，这里会显示你的时间线。"
+  salary:
+    en: "Expected salary"
+    ru: "Желаемая зарплата"
+  employment:
+    en: "Employment"
+    ru: "Занятость"
+  work_format:
+    en: "Work format"
+    ru: "Формат работы"
+  location:
+    en: "Location"
+    ru: "Местоположение"
+  work_permit:
+    en: "Work permit"
+    ru: "Разрешение на работу"
+  education:
+    en: "Education"
+    ru: "Образование"
+  languages_known:
+    en: "Languages"
+    ru: "Знание языков"
+  about_me:
+    en: "About me"
+    ru: "Обо мне"
 
 showcase:
   platforms:
@@ -122,8 +146,8 @@ notfound404:
 
 meta:
   description:
-    en: "CV Hub - one place for your actual resume."
-    ru: "CV Hub - единое место для твоего резюме."
+    en: "Sergey Shter — Fullstack Developer. React, Next.js, TypeScript, Django."
+    ru: "Сергей Штер — Fullstack-разработчик. React, Next.js, TypeScript, Django."
     zh: "CV Hub — 一个展示你最新简历的地方。"
   locale:
     en: "en_US"

@@ -1,0 +1,21 @@
+title: "My Project"
+role: "Lead Developer"
+year: "2026"
+tagline: "A short one-line pitch for the project, shown under the title."
+shareable: true
+
+blocks:
+
+  - type: text
+    title: "Overview"
+    body: |
+      This is your first case study. It renders from a block-based YAML
+      file — text, image, video and code blocks, in any order. See
+      `docs/examples/example_cs.yaml` for every block type with comments,
+      and `docs/INFO.md` §6 for the full reference.
+
+  - type: text
+    title: "What I did"
+    bullets:
+      - Replace this with your real bullet points
+      - One per line, as many as you need
