@@ -76,10 +76,10 @@ experience:
     stack: [React, Next.js, TypeScript, Figma]
 
   - company: Photographer Portfolio
-    role: Frontend Developer (Personal Project)
+    role: Frontend Developer (Exam Project)
     period: "2024"
     description:
-      - Developed a responsive portfolio website for a photographer using native web technologies (HTML, CSS, JavaScript)
+      - Developed a responsive portfolio website for a photographer using native web technologies (HTML, CSS, JavaScript) for a frontend course examination
       - Implemented full-screen modal view for photos and gallery switcher logic in vanilla JavaScript
     stack: [HTML5, CSS3, JavaScript, Git]
 

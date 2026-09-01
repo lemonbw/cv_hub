@@ -41,7 +41,7 @@ projects:
   description: "Адаптивный сайт-визитка фотографа на нативном стеке с модальным окном для фотографий и интерактивным переключением галереи."
   platforms: [Web, Mobile]
   stack: [HTML5, CSS3, JavaScript]
-  tags: [Frontend, Личный проект]
+  tags: [Frontend, Учебный проект]
   theme: blue
   featured: false
   archived: false

@@ -41,7 +41,7 @@ projects:
   description: "Responsive portfolio website for a photographer on vanilla stack with modal photo viewer and interactive gallery switcher."
   platforms: [Web, Mobile]
   stack: [HTML5, CSS3, JavaScript]
-  tags: [Frontend, Personal]
+  tags: [Frontend, Academic Project]
   theme: blue
   featured: false
   archived: false
