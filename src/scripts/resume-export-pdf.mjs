@@ -142,11 +142,17 @@ function html(cv, lang = 'en') {
     </div>` : '';
 
   /* ── Skills ── */
-  const skillsHtml = (cv.skills ?? []).length ? `
+  const filteredSkills = (cv.skills ?? []).filter(s => {
+    const groupName = (typeof s === 'string' ? '' : (s.group ?? '')).toLowerCase();
+    const isLangGroup = groupName === 'языки' || groupName === 'languages' || groupName === 'languages known';
+    return !(isLangGroup && (cv.languages ?? []).length > 0);
+  });
+
+  const skillsHtml = filteredSkills.length ? `
     <div class="sidebar-section">
       <div class="sidebar-divider"></div>
       <h3>${tr.skills}</h3>
-      ${(cv.skills ?? []).map(s => {
+      ${filteredSkills.map(s => {
         const groupName = typeof s === 'string' ? null : (s.group ?? null);
         const items = typeof s === 'string' ? [s] : (s.items ?? []);
         return `
