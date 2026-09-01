@@ -1,4 +1,27 @@
-# CV Hub
+# Сергей Штер — CV & Portfolio (CV Hub)
+
+> 💡 **О проекте**: Данный репозиторий является персональным сайтом-резюме и портфолио **Сергея Штера** (Fullstack-разработчик, React / Next.js / TypeScript / Python / Django).
+> Репозиторий форкнут и построен на базе открытого шаблона [**CV Hub**](https://github.com/KeeGooRoomiE/cv_hub) от [Alexander Gusarov (@spartan121 / KeeGooRoomiE)](https://github.com/KeeGooRoomiE).
+>
+> 🌐 **Live Portfolio:** [lemonbw.github.io/cv_hub](https://lemonbw.github.io/cv_hub/)  
+> 🔗 **Оригинальный проект / шаблон:** [github.com/KeeGooRoomiE/cv_hub](https://github.com/KeeGooRoomiE/cv_hub) | [Live Demo оригинального автора](https://keegooroomie.github.io/cv_hub/)
+
+---
+
+## 👨‍💻 Об авторе форка
+
+- **Имя**: Сергей Штер
+- **Специализация**: Fullstack-разработчик (React, Next.js, TypeScript, Tailwind CSS, Python, Django, PostgreSQL)
+- **Локация**: Казахстан, Караганда
+- **GitHub**: [@lemonbw](https://github.com/lemonbw)
+- **Основные проекты**:
+  - [The World We Knew](https://github.com/lemonbw/the-world-we-knew) — интерактивный сайт-книга (React, Next.js, TypeScript, Tailwind CSS, Django, PostgreSQL)
+  - [Antey Bel (Сайт опалубки)](https://github.com/lemonbw/antey-bel-public) — коммерческий проект с GSAP-анимациями и интеграцией Telegram-бота
+  - [Photographer Card](https://github.com/lemonbw/photographer-card) — адаптивный сайт-визитка фотографа (HTML5, CSS3, JavaScript)
+
+---
+
+# CV Hub (Исходная документация шаблона)
 
 **Your personal site, CV, and project portfolio — from one YAML file.**
 
@@ -8,8 +31,6 @@
 ![Stars](https://img.shields.io/github/stars/KeeGooRoomiE/cv_hub?style=flat)
 
 ![CV Hub Preview — one YAML file in, a full site out](docs/repo-assets/preview_yaml_to_site.png)
-
-🌐 **Live demo:** **[keegooroomie.github.io/cv_hub](https://keegooroomie.github.io/cv_hub/)** — this is the author's real CV, running on CV Hub. There's no separate demo deployment on purpose: what you see is exactly what your fork becomes once you put your own data in.
 
 ---
 
@@ -36,7 +57,7 @@ Open `http://localhost:4321`. Edit `src/content/cv/en.yaml`. Push — site deplo
 
 ## Who this is for
 
-- **You apply as more than one thing.** DevOps *and* fullstack, gamedev *and* Unity tools — and you keep three resumes that drift apart.
+- **You apply as more than one thing.** DevOps _and_ fullstack, gamedev _and_ Unity tools — and you keep three resumes that drift apart.
 - **Your work needs explaining, not listing.** A link to a repo doesn't show how you think; a case-study page does.
 - **You apply in more than one language.** EN and RU from one source, not two documents you edit twice.
 - **You want to own it.** No platform account, no subscription, no builder that can shut down and take your page with it.
@@ -49,18 +70,18 @@ If you need one resume, in one language, for one role — a plain PDF is genuine
 
 Your content lives in YAML — one CV file per language, plus optional deltas for role variants. The build pipeline turns it into everything below:
 
-| | |
-|---|---|
-| 🌐 Live website | Clean personal site with CV, projects, and case studies |
-| 📄 Resume files | PDF, DOCX and TXT for every profile and language — **plus a separate ATS-safe single-column PDF** |
-| 🎭 Multiple profiles | DevOps, GameDev, Fullstack — different CV versions, one source |
-| 🌍 Multi-language | EN, RU, or any language — switcher included |
-| 📁 Case studies | Per-project deep-dive pages: text, images, video, code blocks, deep links |
-| 🖨️ Print-ready | `Ctrl+P` on any page produces a clean document, not a dark-theme screenshot |
-| 🔍 Findable | `schema.org/Person` structured data, `hreflang`, sitemap, per-page meta |
-| 🎨 Themes | 4 built-in themes and 4 animated backgrounds, token-based restyling |
-| 🖼️ Social cards | Auto-generated on every build, one per language, from your real CV data |
-| ⚙️ Deploy | GitHub Actions → GitHub Pages, custom domain supported, zero config on a fork |
+|                      |                                                                                                   |
+| -------------------- | ------------------------------------------------------------------------------------------------- |
+| 🌐 Live website      | Clean personal site with CV, projects, and case studies                                           |
+| 📄 Resume files      | PDF, DOCX and TXT for every profile and language — **plus a separate ATS-safe single-column PDF** |
+| 🎭 Multiple profiles | DevOps, GameDev, Fullstack — different CV versions, one source                                    |
+| 🌍 Multi-language    | EN, RU, or any language — switcher included                                                       |
+| 📁 Case studies      | Per-project deep-dive pages: text, images, video, code blocks, deep links                         |
+| 🖨️ Print-ready       | `Ctrl+P` on any page produces a clean document, not a dark-theme screenshot                       |
+| 🔍 Findable          | `schema.org/Person` structured data, `hreflang`, sitemap, per-page meta                           |
+| 🎨 Themes            | 4 built-in themes and 4 animated backgrounds, token-based restyling                               |
+| 🖼️ Social cards      | Auto-generated on every build, one per language, from your real CV data                           |
+| ⚙️ Deploy            | GitHub Actions → GitHub Pages, custom domain supported, zero config on a fork                     |
 
 No duplicated resumes. No platform lock-in. No visual builders.
 
@@ -69,6 +90,7 @@ No duplicated resumes. No platform lock-in. No visual builders.
 ## Why CV Hub
 
 You probably maintain:
+
 - A PDF resume (two versions, at least)
 - A LinkedIn profile
 - A portfolio on Notion, Tilda, or some other platform
@@ -109,12 +131,12 @@ See **[`docs/INFO.md`](docs/INFO.md)** for merge rules and delta file format.
 
 Every build produces four artifacts per profile × language:
 
-| File | Who it's for |
-|---|---|
-| `resume_{lang}.pdf` | **A human.** Two-column, typeset, the one you link and hand over |
+| File                    | Who it's for                                                                                                                                                         |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `resume_{lang}.pdf`     | **A human.** Two-column, typeset, the one you link and hand over                                                                                                     |
 | `resume_{lang}_ats.pdf` | **A parser.** Single column, Arial/Helvetica, standard headings, contacts in the body flow, no icons — reading order in the file matches visual order, top to bottom |
-| `resume_{lang}.docx` | **Recruiting agencies**, who reformat resumes onto their own letterhead |
-| `resume_{lang}.txt` | **Paste targets** — "paste your resume" textareas, email bodies |
+| `resume_{lang}.docx`    | **Recruiting agencies**, who reformat resumes onto their own letterhead                                                                                              |
+| `resume_{lang}.txt`     | **Paste targets** — "paste your resume" textareas, email bodies                                                                                                      |
 
 Multi-column layouts are a well-known source of parsing errors in applicant tracking systems: some parsers read straight across both columns and interleave your job titles with your skills. Most resume tools make you choose between a document that looks good and one that parses cleanly. CV Hub generates both from the same data, so you never maintain a stripped-down copy by hand.
 
@@ -147,10 +169,11 @@ The page is generated automatically. No code changes needed.
 Content is built from blocks — `text`, `image`, `video` (local file or a YouTube URL), `code`, `divider`, `links`. Any block takes an `anchor: "id"` for deep-linking (`/showcase/{slug}#quickstart`), and backticks in prose render as inline code. All fields optional. See `docs/examples/example_cs.yaml` for every block type.
 
 To link a project card to its case study:
+
 ```yaml
 links:
   - label: Case Study
-    url: /showcase/cv-hub    # no /cv_hub/ prefix — base is added automatically
+    url: /showcase/cv-hub # no /cv_hub/ prefix — base is added automatically
     type: product
 ```
 
@@ -160,17 +183,17 @@ links:
 
 All of these are good tools. The table is about scope, not quality — pick the smallest one that covers what you need.
 
-| | CV Hub | RenderCV / YAMLResume | JSON Resume | Reactive Resume | Astro/Hugo portfolio themes |
-|---|:--:|:--:|:--:|:--:|:--:|
-| Resume as plain text you version in git | ✅ | ✅ | ✅ | — | — |
-| Typeset PDF | ✅ | ✅ | ✅ | ✅ | — |
-| Separate ATS-oriented variant | ✅ | — | — | — | — |
-| DOCX / TXT output | ✅ | — | partial | — | — |
-| Personal site with portfolio | ✅ | — | — | — | ✅ |
-| Per-project case-study pages | ✅ | — | — | — | partial |
-| Role-specific CV versions from one source | ✅ | — | — | — | — |
-| Multi-language from one source | ✅ | — | — | partial | partial |
-| Runs with no database or account | ✅ | ✅ | ✅ | — | ✅ |
+|                                           | CV Hub | RenderCV / YAMLResume | JSON Resume | Reactive Resume | Astro/Hugo portfolio themes |
+| ----------------------------------------- | :----: | :-------------------: | :---------: | :-------------: | :-------------------------: |
+| Resume as plain text you version in git   |   ✅   |          ✅           |     ✅      |        —        |              —              |
+| Typeset PDF                               |   ✅   |          ✅           |     ✅      |       ✅        |              —              |
+| Separate ATS-oriented variant             |   ✅   |           —           |      —      |        —        |              —              |
+| DOCX / TXT output                         |   ✅   |           —           |   partial   |        —        |              —              |
+| Personal site with portfolio              |   ✅   |           —           |      —      |        —        |             ✅              |
+| Per-project case-study pages              |   ✅   |           —           |      —      |        —        |           partial           |
+| Role-specific CV versions from one source |   ✅   |           —           |      —      |        —        |              —              |
+| Multi-language from one source            |   ✅   |           —           |      —      |     partial     |           partial           |
+| Runs with no database or account          |   ✅   |          ✅           |     ✅      |        —        |             ✅              |
 
 If you only need a beautiful PDF, RenderCV is less machinery. If you want a GUI and don't mind hosting a database, Reactive Resume is friendlier. CV Hub is for the case where the resume, the role variants and the portfolio are one thing.
 
@@ -185,7 +208,7 @@ If you only need a beautiful PDF, RenderCV is less machinery. If you want a GUI 
 ### `downloads` — which buttons appear
 
 ```yaml
-downloads: [pdf, docx]     # default
+downloads: [pdf, docx] # default
 ```
 
 Available keys: `pdf`, `pdfAts`, `docx`, `txt`. PDF always renders as the single solid primary button; everything else is secondary.
@@ -205,10 +228,10 @@ Group headings are translatable. Full field reference → [`docs/INFO.md`](docs/
 ### `footerCredit` — the "Made with CV Hub" link
 
 ```yaml
-footerCredit: true   # default; set to false to remove it
+footerCredit: true # default; set to false to remove it
 ```
 
-Adds a small **Made with CV Hub** link next to the GitHub link in your footer, pointing back at this project. It's on by default because backlinks from real deployed sites are how a project like this gets found at all — and it's one line to turn off, with no hard feelings. Everything else in the footer points at *your* repo, not this one.
+Adds a small **Made with CV Hub** link next to the GitHub link in your footer, pointing back at this project. It's on by default because backlinks from real deployed sites are how a project like this gets found at all — and it's one line to turn off, with no hard feelings. Everything else in the footer points at _your_ repo, not this one.
 
 ---
 
@@ -287,9 +310,9 @@ All styles live in `src/styles/global.css`. Token-based — edit only the `:root
 
 Four built-in themes. Pick one for your deployment by swapping the import in `Layout.astro`:
 
-| | |
-|:--:|:--:|
-| ![Frosted](docs/repo-assets/frosted.jpeg) **`frosted.css`** — dark glass, muted tones | ![Light](docs/repo-assets/light.jpeg) **`light.css`** — light background, dark text |
+|                                                                                          |                                                                                         |
+| :--------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: |
+|  ![Frosted](docs/repo-assets/frosted.jpeg) **`frosted.css`** — dark glass, muted tones   |   ![Light](docs/repo-assets/light.jpeg) **`light.css`** — light background, dark text   |
 | ![Nordic](docs/repo-assets/nordic.jpeg) **`nordic.css`** — Nord-inspired, cold blue-grey | ![Peachy](docs/repo-assets/peachy.jpeg) **`peachy.css`** — warm peach, light background |
 
 To look at one before committing to it, append `?theme=` to any URL:
@@ -306,12 +329,12 @@ That switch is a developer convenience for choosing your look — visitors to yo
 
 ![WaveLines background](docs/repo-assets/bkg-samples/wavelines_example.png)
 
-| Component | Type | Description |
-|---|---|---|
-| `AnimatedBackground` | CSS-only | Glowing blur orbs, theme-aware, zero JS |
-| `GalaxyBackground` | Canvas | Spiral galaxy with mouse parallax |
-| `PlayStationWaves` | Canvas | XMB-style filled sine waves, time-of-day hue |
-| `WaveLines` | Canvas | XMB-style glowing stroke lines |
+| Component            | Type     | Description                                  |
+| -------------------- | -------- | -------------------------------------------- |
+| `AnimatedBackground` | CSS-only | Glowing blur orbs, theme-aware, zero JS      |
+| `GalaxyBackground`   | Canvas   | Spiral galaxy with mouse parallax            |
+| `PlayStationWaves`   | Canvas   | XMB-style filled sine waves, time-of-day hue |
+| `WaveLines`          | Canvas   | XMB-style glowing stroke lines               |
 
 Full props reference → [`docs/BKG_INFO.md`](docs/BKG_INFO.md)
 
@@ -356,6 +379,7 @@ npm run build
 ```
 
 Build order:
+
 1. `cv:build` — merge YAMLs → `public/cv/`
 2. `resume:generate` — DOCX + TXT
 3. `resume:pdf` — PDF + ATS PDF via Playwright
@@ -464,23 +488,23 @@ Requires Node 24.
 
 ## Documentation
 
-| File | Description |
-|---|---|
-| [INFO.md](docs/INFO.md) | YAML field reference, routing, i18n, profiles, case studies, `site.yml` |
-| [ENGINEERING.md](docs/ENGINEERING.md) | Architecture decisions, system design, trade-offs |
-| [`LLM-CONTEXT.md`](docs/LLM-CONTEXT.md) | Full project context for AI tools (Claude, ChatGPT, Cursor) |
-| [BKG_INFO.md](docs/BKG_INFO.md) | All background components — props, tuning, previews |
-| [CHANGELOG.md](CHANGELOG.md) | Full technical changelog · [live history](https://keegooroomie.github.io/cv_hub/changelog) · [releases](https://github.com/KeeGooRoomiE/cv_hub/releases) |
+| File                                    | Description                                                                                                                                              |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [INFO.md](docs/INFO.md)                 | YAML field reference, routing, i18n, profiles, case studies, `site.yml`                                                                                  |
+| [ENGINEERING.md](docs/ENGINEERING.md)   | Architecture decisions, system design, trade-offs                                                                                                        |
+| [`LLM-CONTEXT.md`](docs/LLM-CONTEXT.md) | Full project context for AI tools (Claude, ChatGPT, Cursor)                                                                                              |
+| [BKG_INFO.md](docs/BKG_INFO.md)         | All background components — props, tuning, previews                                                                                                      |
+| [CHANGELOG.md](CHANGELOG.md)            | Full technical changelog · [live history](https://keegooroomie.github.io/cv_hub/changelog) · [releases](https://github.com/KeeGooRoomiE/cv_hub/releases) |
 
 ---
 
 ## Sites built with CV Hub
 
-| Site | Who | |
-|---|---|---|
-| [keegooroomie.github.io/cv_hub](https://keegooroomie.github.io/cv_hub/) | Alexander Gusarov — DevOps / Fullstack / GameDev | the original |
-| [antlis.is-a.dev/cv](https://antlis.is-a.dev/cv/en/) | Anton Lisovsky — Senior Front-end Developer (Vue.js) | own domain |
-| [kennusk.github.io/cv_hub](https://kennusk.github.io/cv_hub/) | Valeria Kovalikova — Product / UX-UI Designer | not an engineer |
+| Site                                                                    | Who                                                  |                 |
+| ----------------------------------------------------------------------- | ---------------------------------------------------- | --------------- |
+| [keegooroomie.github.io/cv_hub](https://keegooroomie.github.io/cv_hub/) | Alexander Gusarov — DevOps / Fullstack / GameDev     | the original    |
+| [antlis.is-a.dev/cv](https://antlis.is-a.dev/cv/en/)                    | Anton Lisovsky — Senior Front-end Developer (Vue.js) | own domain      |
+| [kennusk.github.io/cv_hub](https://kennusk.github.io/cv_hub/)           | Valeria Kovalikova — Product / UX-UI Designer        | not an engineer |
 
 **Yours belongs here.** If you've deployed a fork, [open a pull request](https://github.com/KeeGooRoomiE/cv_hub/compare) adding one row to this table — your live URL and a short line about you. That's the whole review process. Seeing real sites is what convinces the next person that this works, so it genuinely helps.
 

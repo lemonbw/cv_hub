@@ -33,11 +33,11 @@ skills:
   - group: Backend
     items: [Python, Django]
   - group: Data
-    items: [PostgreSQL]
+    items: [PostgreSQL, Neon, Supabase]
   - group: Libraries
     items: [GSAP]
   - group: Tools
-    items: [Git, GitHub, Figma, Vite]
+    items: [Git, GitHub, Figma, Vite, Vercel]
   - group: Languages
     items: [Russian, English]
 
