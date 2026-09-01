@@ -250,13 +250,13 @@ function html(cv, lang = 'en') {
 
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 9.5pt;
+      font-size: 9pt;
       font-weight: 400;
       color: var(--text);
       background: #fff;
       display: grid;
-      grid-template-columns: 66mm 1fr;
-      line-height: 1.5;
+      grid-template-columns: 63mm 1fr;
+      line-height: 1.45;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -266,54 +266,54 @@ function html(cv, lang = 'en') {
        ───────────────────────────────────────── */
     .sidebar {
       background: var(--sidebar-bg);
-      padding: 13mm 7mm 13mm 8mm;
+      padding: 11mm 6mm 11mm 7mm;
       display: flex;
       flex-direction: column;
     }
 
     .cv-avatar {
-      width: 36mm;
-      height: 36mm;
+      width: 30mm;
+      height: 30mm;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       align-self: flex-start;
     }
 
     .cv-name {
-      font-size: 18pt;
+      font-size: 16pt;
       font-weight: 600;
       line-height: 1.15;
       color: var(--text);
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
     /* General role — black, lighter weight */
     .cv-title {
-      font-size: 9.5pt;
+      font-size: 9pt;
       font-weight: 400;
       color: var(--text);
-      margin-bottom: 6px;
-      line-height: 1.35;
+      margin-bottom: 4px;
+      line-height: 1.3;
     }
 
     .meta-personal {
-      font-size: 8pt;
+      font-size: 7.5pt;
       color: var(--muted);
-      margin-bottom: 8px;
-      line-height: 1.35;
+      margin-bottom: 6px;
+      line-height: 1.3;
     }
 
     .sidebar-details {
-      margin-bottom: 10px;
-      padding-bottom: 6px;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
       border-bottom: 1px solid #d0d0d0;
     }
 
     .detail-row {
-      font-size: 8pt;
-      line-height: 1.4;
-      margin-bottom: 2px;
+      font-size: 7.5pt;
+      line-height: 1.35;
+      margin-bottom: 1px;
       color: var(--text);
     }
 
@@ -333,9 +333,9 @@ function html(cv, lang = 'en') {
 
     /* Contacts: label and display as link */
     .contact-row {
-      margin-bottom: 3.5px;
-      font-size: 8pt;
-      line-height: 1.35;
+      margin-bottom: 2.5px;
+      font-size: 7.5pt;
+      line-height: 1.3;
     }
 
     .contact-row a {
@@ -352,79 +352,81 @@ function html(cv, lang = 'en') {
     .contact-label {
       font-weight: 600;
       color: var(--text);
+      font-size: 7.5pt;
     }
 
     .contact-value {
       color: var(--accent);
       font-weight: 500;
+      font-size: 7.5pt;
     }
 
     /* Sidebar sections */
-    .sidebar-section { margin-top: 2px; }
+    .sidebar-section { margin-top: 1px; }
 
     .sidebar-divider {
       border: none;
       border-top: 1px solid #d0d0d0;
-      margin: 8px 0 6px;
+      margin: 6px 0 5px;
     }
 
     .sidebar-section h3 {
-      font-size: 8.5pt;
+      font-size: 8pt;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.06em;
       color: var(--text);
-      margin-bottom: 5px;
+      margin-bottom: 4px;
     }
 
     /* Education */
-    .edu-item { margin-bottom: 6px; }
+    .edu-item { margin-bottom: 4px; }
 
     .edu-institution {
       font-weight: 600;
       color: var(--accent);
-      font-size: 8pt;
+      font-size: 7.5pt;
     }
 
     .edu-period {
-      font-size: 7.5pt;
+      font-size: 7pt;
       color: var(--light);
     }
 
     .edu-degree, .edu-field {
-      font-size: 8pt;
+      font-size: 7.5pt;
       color: var(--muted);
     }
 
     /* Skills */
-    .skill-group-block { margin-bottom: 5px; }
+    .skill-group-block { margin-bottom: 4px; }
 
     .skill-group-name {
       font-weight: 600;
       color: var(--accent);
-      font-size: 8pt;
-      margin-bottom: 1px;
+      font-size: 7.5pt;
+      margin-bottom: 0px;
     }
 
     .skill-items {
-      font-size: 8pt;
+      font-size: 7.5pt;
       color: var(--muted);
-      line-height: 1.45;
+      line-height: 1.4;
     }
 
     /* Languages — stacked, not side-by-side */
     .lang-row {
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .lang-name {
       font-weight: 600;
-      font-size: 8pt;
+      font-size: 7.5pt;
       color: var(--text);
     }
 
     .lang-level {
-      font-size: 7.5pt;
+      font-size: 7pt;
       color: var(--muted);
     }
 
@@ -432,32 +434,32 @@ function html(cv, lang = 'en') {
        MAIN CONTENT
        ───────────────────────────────────────── */
     .content {
-      padding: 13mm 10mm 13mm 10mm;
+      padding: 10mm 9mm 10mm 9mm;
       display: flex;
       flex-direction: column;
     }
 
-    .content-section { margin-bottom: 11px; }
+    .content-section { margin-bottom: 8px; }
 
     /* Section titles — bigger, black, thicker divider */
     .content-section h2 {
-      font-size: 12.5pt;
+      font-size: 11pt;
       font-weight: 600;
       color: var(--text);
-      margin-bottom: 5px;
-      padding-bottom: 3px;
+      margin-bottom: 3px;
+      padding-bottom: 2px;
       border-bottom: 2px solid var(--divider);
     }
 
     /* Summary */
     .summary-text {
-      font-size: 9pt;
+      font-size: 8.5pt;
       color: #333;
-      line-height: 1.55;
+      line-height: 1.45;
     }
 
     /* Experience */
-    .exp-entry { margin-bottom: 9px; }
+    .exp-entry { margin-bottom: 6px; }
 
     /* Only header stays glued to first bullet on page break */
     .exp-lead { break-inside: avoid; }
@@ -466,12 +468,12 @@ function html(cv, lang = 'en') {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 8px;
-      margin-bottom: 2px;
+      gap: 6px;
+      margin-bottom: 1px;
     }
 
     .exp-company {
-      font-size: 9.5pt;
+      font-size: 9pt;
       font-weight: 600;
       color: var(--accent);
       flex: 1;
@@ -481,20 +483,20 @@ function html(cv, lang = 'en') {
     .exp-role {
       font-weight: 400;
       color: var(--accent);
-      font-size: 9pt;
+      font-size: 8.5pt;
     }
 
     .exp-period {
-      font-size: 8pt;
+      font-size: 7.5pt;
       color: var(--light);
       white-space: nowrap;
     }
 
     /* Stack — indented to align with bullet text, not bullet marker */
     .exp-stack {
-      font-size: 7.5pt;
+      font-size: 7pt;
       color: var(--light);
-      margin-top: 2px;
+      margin-top: 1px;
       padding-left: 13px;
       font-style: italic;
     }
@@ -502,19 +504,19 @@ function html(cv, lang = 'en') {
     /* Bullets */
     .bullets {
       padding-left: 13px;
-      margin: 2px 0;
+      margin: 1px 0;
     }
 
     .bullets li {
-      font-size: 8.5pt;
+      font-size: 8pt;
       color: #333;
-      margin-bottom: 2px;
-      line-height: 1.45;
+      margin-bottom: 1px;
+      line-height: 1.4;
     }
 
     .bullets li::marker {
       color: var(--accent);
-      font-size: 7.5pt;
+      font-size: 7pt;
     }
   </style>
 </head>
