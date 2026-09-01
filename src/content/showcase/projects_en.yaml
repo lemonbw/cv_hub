@@ -20,7 +20,7 @@ projects:
   name: "Construction Formwork Company Website"
   order: 2
   role: "Frontend Developer"
-  year: "2024"
+  year: "2026"
   description: "Commercial landing page with GSAP animations, modal windows, Markdown to HTML conversion and Telegram bot integration."
   platforms: [Web, Mobile]
   stack: [React, Next.js, TypeScript, Tailwind CSS, GSAP]

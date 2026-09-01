@@ -48,7 +48,7 @@ skills:
 experience:
   - company: Freelance
     role: Frontend Developer
-    period: 2024 — Present
+    period: "2026"
     description:
       - Developed a landing page for a construction formwork company in 3 weeks
       - Implemented GSAP animations, modal windows and responsive layouts for desktop and mobile

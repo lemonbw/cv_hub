@@ -20,7 +20,7 @@ projects:
   name: "Сайт компании по продаже опалубки"
   order: 2
   role: "Frontend-разработчик"
-  year: "2024"
+  year: "2026"
   description: "Коммерческий лендинг с GSAP-анимациями, модальными окнами, конвертацией Markdown в HTML и интеграцией Telegram-бота."
   platforms: [Web, Mobile]
   stack: [React, Next.js, TypeScript, Tailwind CSS, GSAP]
