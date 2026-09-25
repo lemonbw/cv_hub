@@ -28,7 +28,7 @@ contacts:
     url: https://lemonbw.github.io/cv_hub/
 
 achievements:
-  - Built WorldQuest admin panel features including Recharts dashboards, game data management and tools for operating the game
+  - "Built WorldQuest admin panel features including Recharts dashboards, game data management and tools for operating the game"
   - Developed a battle scene editor and tools for managing items, skills, events and promo codes
   - Implemented anti-farming tools, a technical support chat, in-game purchase analytics and role-based access control
   - Built The World We Knew, an interactive book app with search, sorting, pagination, fullscreen reading and text display settings

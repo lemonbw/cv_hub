@@ -135,9 +135,9 @@ const jsonLd = personJsonLd ? {
     Object.entries(personJsonLd).filter(([, v]) => v !== undefined && v !== '' && !(Array.isArray(v) && v.length === 0))
   ),
 } : null;
-// JSON.stringify output is embedded verbatim in a <script> tag below — a "</"
-// in any string value (e.g. a bio mentioning markup) would otherwise close
-// the tag early. < is invisible to JSON parsers but not to an HTML tokenizer.
+// JSON.stringify output is embedded verbatim in a script tag below. A closing
+// script tag sequence in any string value (e.g. a bio mentioning markup) could
+// otherwise close it early. Escaping less-than signs prevents that.
 const jsonLdSafe = jsonLd ? JSON.stringify(jsonLd).replace(/</g, '\\u003c') : null;
 ---
 
