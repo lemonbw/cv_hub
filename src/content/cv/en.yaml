@@ -1,18 +1,19 @@
 name: Sergey Shter
-title: Fullstack Developer
+title: Frontend Developer
 image: /avatar.jpg
-location: Kazakhstan, Karaganda
+location: Karaganda, Kazakhstan
 gender: Male
 birthdate: "23 years old, born February 23, 2003"
-salary: "40 000 ₽ / month (net)"
+salary: "40,000 RUB net"
 employment: Full-time
 work_format: Remote, hybrid
 summary: >
-  Fullstack Developer focused on React, Next.js and TypeScript.
-  I build projects end-to-end — from layout to working application,
-  with polished UI and strong attention to user experience.
-  Actively learning backend development with Python and Django, exploring PostgreSQL.
-  I take full ownership of tasks and see them through to completion.
+  Frontend Developer with about one year of commercial experience building
+  interfaces for the WorldQuest gaming platform's admin panel: dashboards,
+  game data management tools, editors and support interfaces. Core stack:
+  React, TypeScript and Next.js. Comfortable working in existing products,
+  building complex interfaces and taking tasks through to completion. Growing
+  backend skills with Python and Django through personal projects.
 
 contacts:
   - label: Telegram
@@ -27,73 +28,84 @@ contacts:
     url: https://lemonbw.github.io/cv_hub/
 
 achievements:
-  - Built an interactive book-site The World We Knew — search, sorting, pagination, fullscreen mode, reader settings (font, size, alignment), fully responsive
-  - Integrated a Django backend — chapter models, CORS/CSRF, client-side fetch functions; CRUD interface and rich text editor planned
-  - Delivered a commercial freelance project for a construction formwork company — GSAP animations, modals, Telegram bot integration, Markdown to HTML, responsive
-  - Developed a photographer portfolio website on vanilla JS with modal gallery view and image switcher
+  - Built WorldQuest admin panel features including Recharts dashboards, game data management and tools for operating the game
+  - Developed a battle scene editor and tools for managing items, skills, events and promo codes
+  - Implemented anti-farming tools, a technical support chat, in-game purchase analytics and role-based access control
+  - Built The World We Knew, an interactive book app with search, sorting, pagination, fullscreen reading and text display settings
 
 skills:
   - group: Frontend
-    items: [React, Next.js, TypeScript, JavaScript, Tailwind CSS, HTML, CSS]
-  - group: Backend
-    items: [Python, Django]
-  - group: Data
-    items: [PostgreSQL, Neon, Supabase]
-  - group: Libraries
-    items: [GSAP]
+    items: [React, Next.js, TypeScript, JavaScript, HTML5, CSS3, DOM, Tailwind CSS, Zustand]
+  - group: Web Technologies
+    items: [REST API, Fetch API, Responsive Web Design, Cross-Browser Compatibility]
+  - group: UI Libraries
+    items: [Redux, Zustand, React Router, Axios, GSAP, Recharts]
+  - group: APIs and Communication
+    items: [Django REST Framework, BroadcastChannel API]
+  - group: Backend and Data
+    items: [Node.js, Python, Django, PostgreSQL, Cookies, CSRF]
   - group: Tools
-    items: [Git, GitHub, Figma, Vite, Vercel]
+    items: [Git, GitHub, npm, pnpm, Vite, Vercel, Figma]
   - group: Languages
     items: [Russian, English]
 
 experience:
-  - company: Freelance
+  - company: WorldQuest — Gaming Platform Admin Panel
     role: Frontend Developer
-    period: "2026"
+    period: 2025–2026
     description:
-      - Developed a landing page for a construction formwork company in 3 weeks
-      - Implemented GSAP animations, modal windows and responsive layouts for desktop and mobile
-      - Integrated a Telegram bot to handle incoming inquiries from the site
-      - Implemented Markdown to HTML conversion for content rendering
-    stack: [React, Next.js, TypeScript, Tailwind CSS, GSAP]
+      - Spent about a year developing an admin panel for operating the game and working with large volumes of game data
+      - Built a statistics dashboard with Recharts and tools for tracking in-game items, events, actions and player routes
+      - Implemented management tools for items, skills and skill trees, plus a battle scene editor
+      - Developed tools to grant players items and resources, trigger game events, send messages and manage promo codes
+      - Implemented anti-farming tools, a technical support chat and in-game purchase analytics
+      - Used the BroadcastChannel API for communication between browser tabs
+      - Worked with authentication, roles, cookies, CSRF and access control; implemented remote toggles for selected frontend and backend features
+    stack: [React, TypeScript, Vite, Recharts, React Router, Redux, Zustand, Axios, BroadcastChannel API, Git]
 
-  - company: The World We Knew
+  - company: The World We Knew — Interactive Book
     role: Fullstack Developer (Personal Project)
     period: January 2026 — Present
     description:
-      - Building an interactive book-site — main project (~5 months of focused development, 8 months total)
-      - Implemented search, sorting, pagination and fullscreen reading mode
-      - Added reader settings — font choice, text size and alignment controls
-      - Integrated Django backend — chapter models, CORS/CSRF, client-side fetch functions; CRUD and text editor planned
-      - Fully responsive layout for mobile and desktop
-    stack: [React, Next.js, TypeScript, Tailwind CSS, Python, Django, PostgreSQL]
+      - Building a responsive application for reading a book and managing chapters
+      - Implemented search, sorting, pagination, fullscreen reading and text display settings
+      - Connected a Python/Django backend with chapter models and client requests; configured API communication, including CORS, CSRF and cookies
+    stack: [React, Next.js, TypeScript, Tailwind CSS, Python, Django, Django REST Framework, PostgreSQL]
 
-  - company: Game Promo Website
-    role: Frontend Developer (Collaborative)
+  - company: Game Promotional Website
+    role: Frontend Developer (Collaborative Project)
     period: 2026 — Present
     description:
-      - Building a promotional website for a game together with a partner
-      - Currently at the Figma design stage
+      - Building a game promotional website with a teammate and designing the interface and user flows in Figma
     stack: [React, Next.js, TypeScript, Figma]
 
-  - company: Photographer Portfolio
-    role: Frontend Developer (Exam Project)
+  - company: Antey-Bel LLC — Corporate Website
+    role: Frontend Developer
+    period: June–July 2026
+    url: https://antey-bel.vercel.app/
+    description:
+      - Independently recreated the Belarusian branch's website for a construction formwork supplier from an existing visual reference, without access to the original source code
+      - Built responsive pages and interactive elements, with GSAP animations and smooth scrolling using Lenis
+    stack: [React, Next.js, Tailwind CSS, GSAP, Lenis]
+
+  - company: Photographer Portfolio Website
+    role: Exam Project
     period: "2024"
     description:
-      - Developed a responsive portfolio website for a photographer using native web technologies (HTML, CSS, JavaScript) for a frontend course examination
-      - Implemented full-screen modal view for photos and gallery switcher logic in vanilla JavaScript
+      - Developed a responsive portfolio website using HTML, CSS and JavaScript
+      - Implemented fullscreen photo viewing and image navigation in the gallery
     stack: [HTML5, CSS3, JavaScript, Git]
 
 education:
-  - institution: Self-Education & Documentation
-    degree: Frontend & Backend Development (React, TypeScript, Python, Django, PostgreSQL)
+  - institution: Self-Study, Online Courses and Documentation
+    degree: Frontend and Backend Development (React, TypeScript, Python, Django, PostgreSQL)
     period: 2019 — Present
-  - institution: Harvard CS50 & Computer Science Foundations
-    degree: Introduction to Computer Science and Web Development
-    period: 2021 — 2022
-  - institution: Online Specializations (Bogdan Stashchuk, itProger, Enki)
-    degree: JavaScript, React, Python, HTML/CSS coursework
-    period: 2020 — 2024
+  - institution: Harvard CS50 and Computer Science Foundations
+    degree: Introduction to computer science and web development, core concepts and algorithms
+    period: 2021–2022
+  - institution: Specialized Courses (Bogdan Stashchuk, itProger, Enki)
+    degree: JavaScript, React, Python, HTML and CSS
+    period: 2020–2024
 
 languages:
   - language: Russian
