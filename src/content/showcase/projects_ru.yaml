@@ -1,7 +1,20 @@
 projects:
+- slug: worldquest-admin
+  name: "WorldQuest Admin"
+  order: 1
+  role: "Frontend-разработчик"
+  year: "2025–2026"
+  description: "Административная панель игровой платформы: дашборды и аналитика, управление игровыми данными, редактор сцен боёв, инструменты поддержки и разграничение доступа."
+  platforms: [Web, Mobile]
+  stack: [React, TypeScript, Vite, Recharts, React Router, Redux, Zustand, Axios, BroadcastChannel API]
+  tags: [Frontend, Коммерческий проект]
+  theme: emerald
+  featured: true
+  archived: false
+
 - slug: the-world-we-knew
   name: "The World We Knew"
-  order: 1
+  order: 2
   role: "Fullstack-разработчик"
   year: "2026"
   description: "Интерактивный сайт-книга с поиском, сортировкой, пагинацией, fullscreen-режимом и настройками читателя. Backend на Django."
@@ -18,7 +31,7 @@ projects:
 
 - slug: formwork-site
   name: "Сайт компании по продаже опалубки"
-  order: 2
+  order: 3
   role: "Frontend-разработчик"
   year: "2026"
   description: "Коммерческий лендинг с GSAP-анимациями, модальными окнами, конвертацией Markdown в HTML и интеграцией Telegram-бота."
@@ -35,7 +48,7 @@ projects:
 
 - slug: photographer-card
   name: "Сайт-визитка для фотографа"
-  order: 3
+  order: 4
   role: "Frontend-разработчик"
   year: "2024"
   description: "Адаптивный сайт-визитка фотографа на нативном стеке с модальным окном для фотографий и интерактивным переключением галереи."

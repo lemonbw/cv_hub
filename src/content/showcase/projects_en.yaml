@@ -1,7 +1,20 @@
 projects:
+- slug: worldquest-admin
+  name: "WorldQuest Admin"
+  order: 1
+  role: "Frontend Developer"
+  year: "2025–2026"
+  description: "Gaming platform admin panel with analytics dashboards, game data management, a battle scene editor, support tools and role-based access control."
+  platforms: [Web, Mobile]
+  stack: [React, TypeScript, Vite, Recharts, React Router, Redux, Zustand, Axios, BroadcastChannel API]
+  tags: [Frontend, Commercial]
+  theme: emerald
+  featured: true
+  archived: false
+
 - slug: the-world-we-knew
   name: "The World We Knew"
-  order: 1
+  order: 2
   role: "Fullstack Developer"
   year: "2026"
   description: "Interactive book-site with search, sorting, pagination, fullscreen reading mode and reader settings. Django backend."
@@ -18,7 +31,7 @@ projects:
 
 - slug: formwork-site
   name: "Construction Formwork Company Website"
-  order: 2
+  order: 3
   role: "Frontend Developer"
   year: "2026"
   description: "Commercial landing page with GSAP animations, modal windows, Markdown to HTML conversion and Telegram bot integration."
@@ -35,7 +48,7 @@ projects:
 
 - slug: photographer-card
   name: "Photographer Portfolio Website"
-  order: 3
+  order: 4
   role: "Frontend Developer"
   year: "2024"
   description: "Responsive portfolio website for a photographer on vanilla stack with modal photo viewer and interactive gallery switcher."
