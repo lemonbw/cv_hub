@@ -6,7 +6,7 @@ projects:
   year: "2025–2026"
   description: "Административная панель игровой платформы: дашборды и аналитика, управление игровыми данными, редактор сцен боёв, инструменты поддержки и разграничение доступа."
   platforms: [Web, Mobile]
-  stack: [React, TypeScript, Vite, Recharts, React Router, Redux, Zustand, Axios, BroadcastChannel API]
+  stack: [React, TypeScript, Vite, Recharts, React Router, Zustand, Axios, BroadcastChannel API]
   tags: [Frontend, Коммерческий проект]
   theme: emerald
   featured: true
@@ -29,9 +29,26 @@ projects:
       url: https://github.com/lemonbw/the-world-we-knew
       type: repo
 
+- slug: modern-chat
+  name: "Modern Chat"
+  order: 3
+  role: "Fullstack-разработчик"
+  year: "2026"
+  description: "Веб-клиент для Telegram поверх GREEN-API: список чатов с превью и счётчиком непрочитанных, лента сообщений с медиа и голосовыми, поиск, панель контакта и группы. Токен инстанса остаётся на сервере — браузер отправляет только имя метода, а доступ закрыт паролем приложения и HttpOnly-сессией."
+  platforms: [Web, Mobile]
+  stack: [React, TypeScript, Vite, Tailwind CSS, Zustand, Axios, Node.js, GREEN-API, Docker, Vitest]
+  tags: [Fullstack, Личный проект]
+  theme: magenta
+  featured: false
+  archived: false
+  links:
+    - label: GitHub
+      url: https://github.com/lemonbw/modern-chat
+      type: repo
+
 - slug: formwork-site
   name: "Сайт компании по продаже опалубки"
-  order: 3
+  order: 4
   role: "Frontend-разработчик"
   year: "2026"
   description: "Коммерческий лендинг с GSAP-анимациями, модальными окнами, конвертацией Markdown в HTML и интеграцией Telegram-бота."
@@ -48,7 +65,7 @@ projects:
 
 - slug: photographer-card
   name: "Сайт-визитка для фотографа"
-  order: 4
+  order: 5
   role: "Frontend-разработчик"
   year: "2024"
   description: "Адаптивный сайт-визитка фотографа на нативном стеке с модальным окном для фотографий и интерактивным переключением галереи."

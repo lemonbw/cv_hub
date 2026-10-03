@@ -6,7 +6,7 @@ projects:
   year: "2025–2026"
   description: "Gaming platform admin panel with analytics dashboards, game data management, a battle scene editor, support tools and role-based access control."
   platforms: [Web, Mobile]
-  stack: [React, TypeScript, Vite, Recharts, React Router, Redux, Zustand, Axios, BroadcastChannel API]
+  stack: [React, TypeScript, Vite, Recharts, React Router, Zustand, Axios, BroadcastChannel API]
   tags: [Frontend, Commercial]
   theme: emerald
   featured: true
@@ -29,9 +29,26 @@ projects:
       url: https://github.com/lemonbw/the-world-we-knew
       type: repo
 
+- slug: modern-chat
+  name: "Modern Chat"
+  order: 3
+  role: "Fullstack Developer"
+  year: "2026"
+  description: "Telegram web client on top of GREEN-API: chat list with previews and unread counters, message feed with media and voice notes, search, contact and group info panel. The instance token never reaches the browser — the client only sends a method name, and access is gated by an app password and an HttpOnly session."
+  platforms: [Web, Mobile]
+  stack: [React, TypeScript, Vite, Tailwind CSS, Zustand, Axios, Node.js, GREEN-API, Docker, Vitest]
+  tags: [Fullstack, Personal]
+  theme: magenta
+  featured: false
+  archived: false
+  links:
+    - label: GitHub
+      url: https://github.com/lemonbw/modern-chat
+      type: repo
+
 - slug: formwork-site
   name: "Construction Formwork Company Website"
-  order: 3
+  order: 4
   role: "Frontend Developer"
   year: "2026"
   description: "Commercial landing page with GSAP animations, modal windows, Markdown to HTML conversion and Telegram bot integration."
@@ -48,7 +65,7 @@ projects:
 
 - slug: photographer-card
   name: "Photographer Portfolio Website"
-  order: 4
+  order: 5
   role: "Frontend Developer"
   year: "2024"
   description: "Responsive portfolio website for a photographer on vanilla stack with modal photo viewer and interactive gallery switcher."
