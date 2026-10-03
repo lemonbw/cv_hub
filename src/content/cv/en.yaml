@@ -32,20 +32,21 @@ achievements:
   - Developed a battle scene editor and tools for managing items, skills, events and promo codes
   - Implemented anti-farming tools, a technical support chat, in-game purchase analytics and role-based access control
   - Built The World We Knew, an interactive book app with search, sorting, pagination, fullscreen reading and text display settings
+  - Built Modern Chat, a Telegram web client on top of GREEN-API where the instance token stays server-side and access is gated by an app password and an HttpOnly cookie session
 
 skills:
   - group: Frontend
     items: [React, Next.js, TypeScript, JavaScript, HTML5, CSS3, DOM, Tailwind CSS, Zustand]
   - group: Web Technologies
-    items: [REST API, Fetch API, Responsive Web Design, Cross-Browser Compatibility]
+    items: [REST API, Fetch API, IndexedDB, IntersectionObserver, Responsive Web Design, Cross-Browser Compatibility]
   - group: UI Libraries
-    items: [Redux, Zustand, React Router, Axios, GSAP, Recharts]
+    items: [Zustand, React Router, Axios, GSAP, Recharts]
   - group: APIs and Communication
-    items: [Django REST Framework, BroadcastChannel API]
+    items: [Django REST Framework, BroadcastChannel API, Green API, OpenGraph]
   - group: Backend and Data
     items: [Node.js, Python, Django, PostgreSQL, Cookies, CSRF]
   - group: Tools
-    items: [Git, GitHub, npm, pnpm, Vite, Vercel, Figma]
+    items: [Git, GitHub, npm, pnpm, Vite, Vitest, ESLint, Docker, Vercel, Figma]
   - group: Languages
     items: [Russian, English]
 
@@ -61,7 +62,7 @@ experience:
       - Implemented anti-farming tools, a technical support chat and in-game purchase analytics
       - Used the BroadcastChannel API for communication between browser tabs
       - Worked with authentication, roles, cookies, CSRF and access control; implemented remote toggles for selected frontend and backend features
-    stack: [React, TypeScript, Vite, Recharts, React Router, Redux, Zustand, Axios, BroadcastChannel API, Git]
+    stack: [React, TypeScript, Vite, Recharts, React Router, Zustand, Axios, BroadcastChannel API, Git]
 
   - company: The World We Knew — Interactive Book
     role: Fullstack Developer (Personal Project)
@@ -71,6 +72,20 @@ experience:
       - Implemented search, sorting, pagination, fullscreen reading and text display settings
       - Connected a Python/Django backend with chapter models and client requests; configured API communication, including CORS, CSRF and cookies
     stack: [React, Next.js, TypeScript, Tailwind CSS, Python, Django, Django REST Framework, PostgreSQL]
+
+  - company: Modern Chat — Telegram Web Client
+    role: Fullstack Developer (Personal Project)
+    period: September 2026 — Present
+    url: https://github.com/lemonbw/modern-chat
+    description:
+      - "Building a Telegram web client on top of GREEN-API: chat list with unread counters, message feed with media and voice notes, search, contact and group info panel"
+      - Kept the instance token server-side — the client only sends a method name, while a serverless proxy injects the API URL, instance and token
+      - Gated access with an app password and an HMAC-SHA256 signed HttpOnly cookie session; write methods require separate confirmation, and a read-only mode is supported
+      - Implemented QR-code and 2FA sign-in, plus link previews with OpenGraph parsing and SSRF protection
+      - "Worked within GREEN-API quotas: cached responses in localStorage and paused a method when the limit was hit instead of retrying"
+      - Added lazy media loading, IntersectionObserver history pagination, an IndexedDB cache for read messages and an ErrorBoundary
+      - Set up deployment through Vercel serverless functions and self-hosting via server.js with Docker; covered with 108 Vitest tests
+    stack: [React, TypeScript, Vite, Tailwind CSS, Zustand, Axios, Node.js, Green API, Vitest, Docker, Vercel]
 
   - company: Game Promotional Website
     role: Frontend Developer (Collaborative Project)
