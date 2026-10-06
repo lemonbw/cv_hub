@@ -1,19 +1,18 @@
 name: Sergey Shter
-title: Frontend Developer
+title: UX/UI Teaching Position
 image: /avatar.jpg
 location: Karaganda, Kazakhstan
 gender: Male
 birthdate: "23 years old, born February 23, 2003"
-salary: "40,000 RUB net"
+salary: "4,500 KZT per pair"
 employment: Full-time
 work_format: Remote, hybrid
 summary: >
-  Frontend Developer with about one year of commercial experience building
-  interfaces for the WorldQuest gaming platform's admin panel: dashboards,
-  game data management tools, editors and support interfaces. Core stack:
-  React, TypeScript and Next.js. Comfortable working in existing products,
-  building complex interfaces and taking tasks through to completion. Growing
-  backend skills with Python and Django through personal projects.
+  Frontend and UX/UI specialist with about one year of commercial experience.
+  Built interfaces for the WorldQuest gaming platform's admin panel and designed
+  user flows and interfaces in Figma. Seeking to teach UX/UI, share practical
+  knowledge and help others develop skills in designing clear, useful interfaces.
+  Core skills include React, TypeScript, Figma, UX and UI.
 
 contacts:
   - label: Telegram
@@ -46,13 +45,15 @@ skills:
   - group: Backend and Data
     items: [Node.js, Python, Django, PostgreSQL, Cookies, CSRF]
   - group: Tools
-    items: [Git, GitHub, npm, pnpm, Vite, Vitest, ESLint, Docker, Vercel, Figma]
+    items: [Figma, Git, GitHub, npm, pnpm, Vite, Vitest, ESLint, Docker, Vercel]
+  - group: UX/UI
+    items: [UX, UI, Interface Design, User Flows, Prototyping, Figma]
   - group: Languages
     items: [Russian, English]
 
 experience:
   - company: WorldQuest — Gaming Platform Admin Panel
-    role: Frontend Developer
+    role: Frontend Developer (Commercial Team Project)
     period: 2025–2026
     description:
       - Spent about a year developing an admin panel for operating the game and working with large volumes of game data
@@ -60,7 +61,6 @@ experience:
       - Implemented management tools for items, skills and skill trees, plus a battle scene editor
       - Developed tools to grant players items and resources, trigger game events, send messages and manage promo codes
       - Implemented anti-farming tools, a technical support chat and in-game purchase analytics
-      - Used the BroadcastChannel API for communication between browser tabs
       - Worked with authentication, roles, cookies, CSRF and access control; implemented remote toggles for selected frontend and backend features
     stack: [React, TypeScript, Vite, Recharts, React Router, Zustand, Axios, BroadcastChannel API, Git]
 
@@ -81,9 +81,6 @@ experience:
       - "Building a Telegram web client on top of GREEN-API: chat list with unread counters, message feed with media and voice notes, search, contact and group info panel"
       - Kept the instance token server-side — the client only sends a method name, while a serverless proxy injects the API URL, instance and token
       - Gated access with an app password and an HMAC-SHA256 signed HttpOnly cookie session; write methods require separate confirmation, and a read-only mode is supported
-      - Implemented QR-code and 2FA sign-in, plus link previews with OpenGraph parsing and SSRF protection
-      - "Worked within GREEN-API quotas: cached responses in localStorage and paused a method when the limit was hit instead of retrying"
-      - Added lazy media loading, IntersectionObserver history pagination, an IndexedDB cache for read messages and an ErrorBoundary
       - Set up deployment through Vercel serverless functions and self-hosting via server.js with Docker; covered with 108 Vitest tests
     stack: [React, TypeScript, Vite, Tailwind CSS, Zustand, Axios, Node.js, Green API, Vitest, Docker, Vercel]
 
@@ -95,12 +92,11 @@ experience:
     stack: [React, Next.js, TypeScript, Figma]
 
   - company: Antey-Bel LLC — Corporate Website
-    role: Frontend Developer
+    role: Frontend Developer (Commercial Project)
     period: June–July 2026
     url: https://antey-bel.vercel.app/
     description:
       - Independently recreated the Belarusian branch's website for a construction formwork supplier from an existing visual reference, without access to the original source code
-      - Built responsive pages and interactive elements, with GSAP animations and smooth scrolling using Lenis
     stack: [React, Next.js, Tailwind CSS, GSAP, Lenis]
 
   - company: Photographer Portfolio Website
