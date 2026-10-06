@@ -202,7 +202,7 @@ function html(cv, lang = 'en') {
         <div class="exp-entry">
           <div class="exp-lead">
             <div class="exp-header">
-              <div class="exp-company">${esc(exp.company)}${exp.role ? ` <span class="exp-role">— ${esc(exp.role)}</span>` : ''}</div>
+              <div class="exp-company">${esc(exp.company)}${exp.role ? `<span class="exp-role">${esc(exp.role)}</span>` : ''}</div>
               <div class="exp-period">${esc(cleanPeriod(exp.period))}</div>
             </div>
           </div>
@@ -250,13 +250,13 @@ function html(cv, lang = 'en') {
 
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 9pt;
+      font-size: 8.5pt;
       font-weight: 400;
       color: var(--text);
       background: #fff;
       display: grid;
       grid-template-columns: 63mm 1fr;
-      line-height: 1.45;
+      line-height: 1.35;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -266,7 +266,7 @@ function html(cv, lang = 'en') {
        ───────────────────────────────────────── */
     .sidebar {
       background: var(--sidebar-bg);
-      padding: 11mm 6mm 11mm 7mm;
+      padding: 8mm 6mm 8mm 7mm;
       display: flex;
       flex-direction: column;
     }
@@ -276,7 +276,7 @@ function html(cv, lang = 'en') {
       height: 30mm;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       align-self: flex-start;
     }
 
@@ -305,7 +305,7 @@ function html(cv, lang = 'en') {
     }
 
     .sidebar-details {
-      margin-bottom: 8px;
+      margin-bottom: 5px;
       padding-bottom: 4px;
       border-bottom: 1px solid #d0d0d0;
     }
@@ -367,7 +367,7 @@ function html(cv, lang = 'en') {
     .sidebar-divider {
       border: none;
       border-top: 1px solid #d0d0d0;
-      margin: 6px 0 5px;
+      margin: 4px 0 3px;
     }
 
     .sidebar-section h3 {
@@ -376,11 +376,11 @@ function html(cv, lang = 'en') {
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--text);
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     /* Education */
-    .edu-item { margin-bottom: 4px; }
+    .edu-item { margin-bottom: 2px; }
 
     .edu-institution {
       font-weight: 600;
@@ -399,7 +399,7 @@ function html(cv, lang = 'en') {
     }
 
     /* Skills */
-    .skill-group-block { margin-bottom: 4px; }
+    .skill-group-block { margin-bottom: 2px; }
 
     .skill-group-name {
       font-weight: 600;
@@ -411,7 +411,7 @@ function html(cv, lang = 'en') {
     .skill-items {
       font-size: 7.5pt;
       color: var(--muted);
-      line-height: 1.4;
+      line-height: 1.25;
     }
 
     /* Languages — stacked, not side-by-side */
@@ -434,12 +434,12 @@ function html(cv, lang = 'en') {
        MAIN CONTENT
        ───────────────────────────────────────── */
     .content {
-      padding: 10mm 9mm 10mm 9mm;
+      padding: 8mm 9mm 8mm 9mm;
       display: flex;
       flex-direction: column;
     }
 
-    .content-section { margin-bottom: 8px; }
+    .content-section { margin-bottom: 5px; }
 
     /* Section titles — bigger, black, thicker divider */
     .content-section h2 {
@@ -453,13 +453,13 @@ function html(cv, lang = 'en') {
 
     /* Summary */
     .summary-text {
-      font-size: 8.5pt;
+      font-size: 8pt;
       color: #333;
-      line-height: 1.45;
+      line-height: 1.3;
     }
 
     /* Experience */
-    .exp-entry { margin-bottom: 6px; }
+    .exp-entry { margin-bottom: 3px; }
 
     /* Only header stays glued to first bullet on page break */
     .exp-lead { break-inside: avoid; }
@@ -473,7 +473,7 @@ function html(cv, lang = 'en') {
     }
 
     .exp-company {
-      font-size: 9pt;
+      font-size: 8.5pt;
       font-weight: 600;
       color: var(--accent);
       flex: 1;
@@ -481,9 +481,10 @@ function html(cv, lang = 'en') {
 
     /* Role — same color as company */
     .exp-role {
+      display: block;
       font-weight: 400;
       color: var(--accent);
-      font-size: 8.5pt;
+      font-size: 8pt;
     }
 
     .exp-period {
@@ -508,10 +509,10 @@ function html(cv, lang = 'en') {
     }
 
     .bullets li {
-      font-size: 8pt;
+      font-size: 7.5pt;
       color: #333;
       margin-bottom: 1px;
-      line-height: 1.4;
+      line-height: 1.25;
     }
 
     .bullets li::marker {
@@ -609,7 +610,7 @@ function htmlAts(cv, lang = 'en') {
         return `
         <div class="entry">
           <p class="entry-head">
-            <strong>${esc(exp.company)}</strong>${exp.role ? ` — ${esc(exp.role)}` : ''}, ${esc(cleanPeriod(exp.period))}
+            <strong>${esc(exp.company)}</strong>${exp.role ? `<br>${esc(exp.role)}` : ''}, ${esc(cleanPeriod(exp.period))}
           </p>
           ${desc.length ? `<ul>${desc.map(d => `<li>${esc(d)}</li>`).join('')}</ul>` : ''}
           ${exp.stack?.length ? `<p class="entry-stack">${exp.stack.map(esc).join(', ')}</p>` : ''}
